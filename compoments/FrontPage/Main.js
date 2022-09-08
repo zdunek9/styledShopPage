@@ -45,7 +45,7 @@ function Main() {
         </Title>
       </Parting>
       <StyledImage>
-        <Image src={glasses} alt="glasses" style={{borderRadius: "25px"}} />
+        <Image src={glasses} alt="glasses" style={{ borderRadius: "25px" }} />
       </StyledImage>
     </Wrapper>
   );

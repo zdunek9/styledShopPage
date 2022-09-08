@@ -14,6 +14,9 @@ export const Wrapper = styled.section`
     align-items: center;
     margin: 4vw 0;
   }
+  @media (max-height: 800px) {
+    margin: 3vh;
+  }
 `;
 export const Parting = styled.div`
   margin-right: 5vw;
@@ -37,6 +40,11 @@ export const Parting = styled.div`
   @media (max-width: 800px) {
     margin-right: unset;
   }
+  @media (max-height: 800px) {
+    h1 {
+      font-size: 5rem;
+    }
+  }
 `;
 export const Title = styled.div`
   div {
@@ -55,5 +63,8 @@ export const StyledImage = styled.div`
 
   @media (max-width: 800px) {
     display: none;
+  }
+  @media (max-height: 800px) {
+    width: 40%;
   }
 `;
