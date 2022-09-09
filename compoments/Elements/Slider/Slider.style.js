@@ -9,10 +9,12 @@ export const Wrapper = styled.div`
   max-width: 270px;
   max-height: 140px;
   padding: 15px 30px;
-  margin: 0 15px;
+  margin: 0 45px;
   border-radius: 20px;
+  margin: auto;
   transition: 0.3s;
   background-color: ${(props) => props.theme.itemsBackground};
+
   &:hover {
     transform: scale(1.1, 1.1);
   }
@@ -21,10 +23,11 @@ export const Wrapper = styled.div`
     min-width: unset;
   }
   @media (max-width: 800px) {
-    padding: 20px 40px;
-    margin: 15px;
     &:hover {
       transform: unset;
+    }
+    @media (max-width: 800px) {
+      width: 200px;
     }
   }
 `;
@@ -32,16 +35,14 @@ export const NamePrice = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  margin-bottom: 15px;
   width: 100%;
   span {
     font-weight: 700;
     font-size: 1.2rem;
   }
 `;
-export const Photo = styled.img`
-  width: 180px;
-`;
+
 export const NameWrapper = styled.div`
   margin-right: 60px;
   p {
@@ -49,9 +50,13 @@ export const NameWrapper = styled.div`
     color: grey;
     font-size: 0.7rem;
   }
+  @media (max-width: 800px) {
+    margin-right: 20px;
+  }
 `;
 export const AddButton = styled.div`
   border-radius: 10px;
+  min-width: 30px;
   font-size: 1.5rem;
   padding: 3px;
   color: white;
@@ -64,4 +69,7 @@ export const AddButton = styled.div`
     rgba(133, 51, 19, 1) 87%
   );
   cursor: pointer;
+  @media (max-width: 800px) {
+    margin-left: 5px;
+  }
 `;

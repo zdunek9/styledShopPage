@@ -12,7 +12,7 @@ export default function Home() {
       name: "Dolma",
       secondName: "vision",
       price: "233",
-      source: "/Images/glassesItem1.png",
+      source: "/Images/glassesItem7.png",
     },
     {
       name: "Merrit",
@@ -24,7 +24,7 @@ export default function Home() {
       name: "Josen",
       secondName: "sunglasses",
       price: "213",
-      source: "/Images/glassesItem3.png",
+      source: "/Images/glassesItem5.png",
     },
   ];
   return (

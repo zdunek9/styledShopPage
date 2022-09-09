@@ -40,10 +40,12 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  
   p {
     font-size: 1.1rem;
     padding: 25px;
     cursor: pointer;
+    
   }
   p:hover {
     background-color: ${(props) => props.theme.hover1};
@@ -53,6 +55,8 @@ export const Menu = styled.div`
     font-size: 2rem;
     display: flex;
     cursor: pointer;
+    min-width: 40px;
+
   }
   @media (max-width: 1000px) {
     p {
@@ -67,6 +71,7 @@ export const Menu = styled.div`
 export const IconShop = styled.div`
   border-radius: 50%;
   padding: 10px;
+  min-width: 40px;
   color: white;
   background: rgb(232, 201, 129);
   background: linear-gradient(

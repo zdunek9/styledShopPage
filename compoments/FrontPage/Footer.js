@@ -1,9 +1,7 @@
 import React from "react";
-import SingleItem from "../Elements/SingleItem/SingleItem";
 import { ItemsWrapper, SubTitle, Wrapper } from "./Footer.style";
 import { motion } from "framer-motion";
-
-import Image from "next/image";
+import Slider from "../Elements/Slider/Slider";
 
 const loadVariants = {
   hidden: {
@@ -28,15 +26,7 @@ function Footer({ data }) {
         Trend <br /> Products
       </SubTitle>
       <ItemsWrapper>
-        {data.map((item) => (
-          <SingleItem
-            key={item.name}
-            name={item.name}
-            secondName={item.secondName}
-            price={item.price}
-            source={item.source}
-          />
-        ))}
+        <Slider data={data} />
       </ItemsWrapper>
     </Wrapper>
   );

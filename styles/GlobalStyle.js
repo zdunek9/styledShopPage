@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing: border-box;
-
+    max-width: 100%;
 }
 body{
     background-color: #fcf5e8;
@@ -18,5 +18,9 @@ a,a:link,a:visited,button{
         text-decoration: none;
         background-color: unset;
         font-family: 'Montserrat', sans-serif;
+    }
+
+    .swiper-button-next, .swiper-button-prev{
+        color:#ce7162;
     }
 `;
