@@ -1,7 +1,7 @@
 import React from "react";
 import { AddButton, NamePrice, NameWrapper, Wrapper } from "./Slider.style";
 import { AiOutlinePlus } from "react-icons/ai";
-import Image from "next/image";
+// import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import "swiper/css";
@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 function Slider({ data }) {
   return (
     <Swiper
-      modules={[Navigation, Autoplay]}
+      modules={[Navigation, Autoplay ]}
       slidesPerView="auto"
       breakpoints={{
         640: {
@@ -42,7 +42,7 @@ function Slider({ data }) {
                 <AiOutlinePlus />
               </AddButton>
             </NamePrice>
-            <Image src={item.source} alt="itemPic" width={180} height={80} />
+            <img src={item.source} alt="itemPic" width={180} height={80} />
           </Wrapper>
         </SwiperSlide>
       ))}

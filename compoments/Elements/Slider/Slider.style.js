@@ -26,9 +26,11 @@ export const Wrapper = styled.div`
     &:hover {
       transform: unset;
     }
-    @media (max-width: 800px) {
-      width: 200px;
-    }
+  }
+  @media (max-width: 700px) {
+    min-width: unset;
+    max-width: unset;
+    width:250px;
   }
 `;
 export const NamePrice = styled.div`

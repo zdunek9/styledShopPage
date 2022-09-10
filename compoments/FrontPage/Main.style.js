@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  margin: 6vh 0;
+  margin: 12vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  @media (max-height: 1100px){
+      margin: 6vh 0;
+  }
   @media (max-width: 1000px) {
-    margin: 4vw;
+    margin: 4vh;
   }
   @media (max-width: 800px) {
     flex-direction: column;
     align-items: center;
-    margin: 4vw 0;
+    margin: 4vh 0;
   }
   @media (max-height: 800px) {
     margin: 3vh;
