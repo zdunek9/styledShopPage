@@ -3,8 +3,6 @@ import Button1 from "../Elements/Button1";
 import { BsArrowDownRightCircle } from "react-icons/bs";
 import { Parting, Title, Wrapper, StyledImage } from "./Main.style";
 import { motion } from "framer-motion";
-import glasses from "../../public/Images/glasses.jpg";
-import Image from "next/image";
 
 const loadVariants = {
   hidden: {
@@ -45,7 +43,11 @@ function Main() {
         </Title>
       </Parting>
       <StyledImage>
-        <Image src={glasses} alt="glasses" style={{ borderRadius: "25px" }} />
+        <img
+          src="/Images/glasses.jpg"
+          alt="glasses"
+          style={{ borderRadius: "25px" }}
+        />
       </StyledImage>
     </Wrapper>
   );
