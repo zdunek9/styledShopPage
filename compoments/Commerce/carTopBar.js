@@ -3,6 +3,7 @@ import { Lens, UnderListLenses, Wrapper } from "./catTopBar.style";
 import { motion } from "framer-motion";
 
 const showItems = {
+  
   rest: { opacity: 0, ease: "easeOut", duration: 0.2, type: "tween" },
   hover: {
     opacity: 1,

@@ -11,6 +11,7 @@ export const Wrapper = styled.ul`
 `;
 export const Lens = styled.li`
   margin: 20px;
+  padding:10px;
   cursor: pointer;
   font-weight: 600;
   &:hover {
@@ -26,7 +27,7 @@ export const UnderListLenses = styled.ul`
   justify-content: space-between;
   bottom: 0;
   left: 0;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   display: none;
   cursor: default;
@@ -35,6 +36,7 @@ export const UnderListLenses = styled.ul`
     display: flex;
   }
   li {
+    font-size: 0.8rem;
     text-align: center;
     cursor: pointer;
     padding: 15px 0;
