@@ -1,10 +1,9 @@
-import { ThemeProvider } from "styled-components";
 import { Wrapper } from "../styles/index.style";
 import Header from "../compoments/FrontPage/Header";
 import Main from "../compoments/FrontPage/Main";
 import Footer from "../compoments/FrontPage/Footer";
-import { theme } from "../styles/theme";
-import { GlobalStyle } from "../styles/GlobalStyle";
+import CommerceMain from "./commerce";
+
 
 export default function Home() {
   const DUMMY_DATA = [
@@ -28,13 +27,11 @@ export default function Home() {
     },
   ];
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Wrapper>
-        <Header />
-        <Main />
-        <Footer data={DUMMY_DATA} />
-      </Wrapper>
-    </ThemeProvider>
+    // <Wrapper>
+    //   <Header />
+    //   <Main />
+    //   <Footer data={DUMMY_DATA} />
+    // </Wrapper>
+    <CommerceMain />
   );
 }
