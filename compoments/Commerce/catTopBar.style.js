@@ -16,7 +16,7 @@ export const Lens = styled.li`
   font-weight: 600;
   &:hover {
     padding-bottom: 90px;
-    color: #ce7162;
+    color: ${props => props.theme.darkerHover}
   }
 `;
 
