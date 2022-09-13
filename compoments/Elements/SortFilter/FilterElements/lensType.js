@@ -1,11 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import { FrameColorsList } from "../../../Data/FilterData";
+import React, { useState } from "react";
+import { LensTypeList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
-import { ColorFrame, ListStyled, Wrapper } from "./frameColors.style";
-function FrameColors() {
+import { ListStyled, Wrapper } from "./lensType.style";
+
+function LensType() {
   const [checkedState, setCheckedState] = useState(
-    new Array(FrameColorsList.length).fill(false)
+    new Array(LensTypeList.length).fill(false)
   );
 
   const handleOnChange = (position) => {
@@ -17,27 +17,29 @@ function FrameColors() {
 
   const submitFilters = () => {
     const transformedArray = checkedState.map((item, index) =>
-      item ? FrameColorsList[index].color : ""
+      item ? LensTypeList[index] : ""
     );
     const clearedArra = transformedArray.filter((item) => item);
-
-    console.log(clearedArra);
   };
   return (
     <Wrapper>
       <ListStyled>
-        {FrameColorsList.map((item, index) => (
+        {LensTypeList.map((item, index) => (
           <li key={index}>
             <label>
-              <ColorFrame colors={item.code}></ColorFrame>
+              <img
+                src={item.imageSource}
+                alt="GlassesType"
+                style={{ width: "40px", height: "18px" }}
+              />
+              {item.type}
               <CustomCheckbox
-                name={item.color}
-                value={item.color}
+                name={item.type}
+                value={item.type}
                 checked={checkedState[index]}
                 index={index}
                 handleOnChangeProp={handleOnChange}
               />
-              {item.color}
             </label>
           </li>
         ))}
@@ -47,4 +49,4 @@ function FrameColors() {
   );
 }
 
-export default FrameColors;
+export default LensType;

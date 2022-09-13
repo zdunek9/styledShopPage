@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -300px;
-  left: 19vw;
+  bottom: -290px;
+  left: 52vw;
   width: 250px;
-  height: 300px;
+  height: 290px;
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
   button {
     width: 100%;
     height: 30px;
@@ -21,31 +21,21 @@ export const Wrapper = styled.div`
 `;
 export const ListStyled = styled.ul`
   width: 100%;
-  height: 95%;
+  height: 90%;
   z-index: 1;
   list-style-type: none;
-  padding: 10px;
+  padding: 5px;
   overflow: auto;
   li {
-    margin: 10px;
+    margin: 20px;
   }
   label {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
   }
-  span {
-    height: 20px;
-    width: 20px;
-    min-width: 20px;
-    margin-right: 10px;
-    border-radius: 10px;
-  }
-`;
-
-export const ColorFrame = styled.span`
-  background: ${(props) => props.colors};
 `;

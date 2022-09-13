@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrandsList } from "../../../Data/BrandsList";
+import { BrandsList } from "../../../Data/FilterData";
 
 import CustomCheckbox from "../../CustomCheckbox";
 import { ListStyled, Wrapper } from "./brands.style";
@@ -21,8 +21,6 @@ function Brands() {
       item ? BrandsList[index] : ""
     );
     const clearedArra = transformedArray.filter((item) => item);
-
-    console.log(clearedArra);
   };
   return (
     <Wrapper>
