@@ -6,14 +6,16 @@ export const Wrapper = styled.div`
   left: 19vw;
   width: 250px;
   height: 300px;
+  padding: 15px !important;
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
   button {
     width: 100%;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
+    margin-top: 10px;
   }
   button:hover {
     background-color: ${(props) => props.theme.hover1};
@@ -21,13 +23,12 @@ export const Wrapper = styled.div`
 `;
 export const ListStyled = styled.ul`
   width: 100%;
-  height: 95%;
+  height: 100%;
   z-index: 1;
   list-style-type: none;
-  padding: 10px;
   overflow: auto;
   li {
-    margin: 10px;
+    padding: 7px;
   }
   label {
     font-size: 1rem;

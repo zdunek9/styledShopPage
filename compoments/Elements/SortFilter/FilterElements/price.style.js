@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -290px;
-  right: 12vw;
+  bottom: -210px;
+  right: 2vw;
   width: 250px;
-  height: 290px;
+  height: 210px;
   padding: 15px !important;
+
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;
   display: flex;
@@ -35,7 +36,6 @@ export const ListStyled = styled.ul`
     font-weight: 600;
     line-height: 1.1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     cursor: pointer;
   }

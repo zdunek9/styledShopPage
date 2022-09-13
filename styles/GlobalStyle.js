@@ -6,6 +6,17 @@ export const GlobalStyle = createGlobalStyle`
     padding:0;
     box-sizing: border-box;
     max-width: 100%;
+    &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px gray;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+  }
 }
 body{
     background-color: #fcf5e8;
@@ -13,6 +24,7 @@ body{
     min-height: 100vh;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
+    
 }
 a,a:link,a:visited,button{
         text-decoration: none;

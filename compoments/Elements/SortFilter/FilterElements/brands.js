@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { BrandsList } from "../../../Data/FilterData";
-
 import CustomCheckbox from "../../CustomCheckbox";
 import { ListStyled, Wrapper } from "./brands.style";
 
-function Brands() {
+function Brands({ closeModal }) {
   const [checkedState, setCheckedState] = useState(
     new Array(BrandsList.length).fill(false)
   );
@@ -21,6 +20,7 @@ function Brands() {
       item ? BrandsList[index] : ""
     );
     const clearedArra = transformedArray.filter((item) => item);
+    closeModal();
   };
   return (
     <Wrapper>

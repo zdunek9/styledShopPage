@@ -7,13 +7,15 @@ export const Wrapper = styled.div`
   width: 250px;
   height: 300px;
   background-color: ${(props) => props.theme.hover1};
-    cursor: default !important;
-  display: grid;
-  place-content: center;
+  cursor: default !important;
+  display: flex;
+  flex-direction: column;
+  padding:15px !important;
   button {
     width: 100%;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
+    margin-top: 10px;
   }
   button:hover {
     background-color: ${(props) => props.theme.hover1};
@@ -24,10 +26,12 @@ export const ListStyled = styled.ul`
   height: 95%;
   z-index: 1;
   list-style-type: none;
-  padding: 10px;
   overflow: auto;
+  scrollbar-color: red;
+  scrollbar-width: thin;
+
   li {
-    margin: 10px;
+    padding: 7px;
   }
   label {
     font-size: 1rem;

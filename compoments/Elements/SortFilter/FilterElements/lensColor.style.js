@@ -2,22 +2,23 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -450px;
+  bottom: -490px;
   left: 30vw;
   width: 500px;
-  height: 450px;
+  height: 490px;
   background-color: ${(props) => props.theme.hover1};
   place-content: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: default !important;
+  padding: 15px !important;
 
   button {
     width: 100%;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
-    margin:0 20px;
+    margin: 0 20px;
   }
   button:hover {
     background-color: ${(props) => props.theme.hover1};
@@ -28,12 +29,11 @@ export const ListStyled = styled.ul`
   height: 95%;
   z-index: 1;
   list-style-type: none;
-  padding: 10px;
   overflow: auto;
   cursor: default !important;
 
   li {
-    margin: 10px;
+    padding: 7px;
   }
   label {
     font-size: 1rem;

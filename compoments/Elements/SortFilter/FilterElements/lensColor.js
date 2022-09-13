@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LensColorsList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import {
@@ -11,12 +11,13 @@ import {
 import { GrCheckboxSelected } from "react-icons/gr";
 import { ListStyled } from "./lensColor.style";
 
-function LensColor() {
+function LensColor({ closeModal }) {
   const [checkedState, setCheckedState] = useState(
     new Array(LensColorsList.length).fill(false)
   );
   const [selectedType, setSelectedType] = useState(new Array(4).fill(false));
 
+  useEffect(() => {}, [checkedState]);
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -37,13 +38,20 @@ function LensColor() {
     const clearedArra = transformedArray.filter((item) => item);
     console.log(clearedArra);
     console.log(selectedType);
+    closeModal();
+  };
+
+  const clearFilters = () => {
+    const clearedFilters = checkedState.fill(false);
+    setSelectedType(clearedFilters);
+    console.log("clear");
   };
 
   return (
     <Wrapper>
       <WrapperParting>
         <LensColorType>
-          <h3>Type </h3>
+          <h3>Type</h3>
           <h4 onClick={() => selectType(0)}>
             Gradient {selectedType[0] && <GrCheckboxSelected />}
           </h4>
@@ -81,7 +89,7 @@ function LensColor() {
       </WrapperParting>
       <ButtonWrapper>
         <button onClick={submitFilters}>Apply</button>
-        <button>Clear Filters</button>
+        <button onClick={clearFilters}>Clear Filters</button>
       </ButtonWrapper>
     </Wrapper>
   );

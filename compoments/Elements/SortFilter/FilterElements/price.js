@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { LensTypeList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
-import { ListStyled, Wrapper } from "./lensType.style";
+import { ListStyled, Wrapper } from "./price.style";
 
-function LensType({closeModal}) {
-  const [checkedState, setCheckedState] = useState(
-    new Array(LensTypeList.length).fill(false)
-  );
+function Price({ closeModal }) {
+  const [checkedState, setCheckedState] = useState(new Array(3).fill(false));
+  const priceList = ["Under $200", "$200-$300", "$300 And Over"];
 
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
@@ -17,7 +15,7 @@ function LensType({closeModal}) {
 
   const submitFilters = () => {
     const transformedArray = checkedState.map((item, index) =>
-      item ? LensTypeList[index].type : ""
+      item ? priceList[index] : ""
     );
     const clearedArra = transformedArray.filter((item) => item);
     console.log(clearedArra);
@@ -26,22 +24,17 @@ function LensType({closeModal}) {
   return (
     <Wrapper>
       <ListStyled>
-        {LensTypeList.map((item, index) => (
+        {priceList.map((item, index) => (
           <li key={index}>
             <label>
-              <img
-                src={item.imageSource}
-                alt="GlassesType"
-                style={{ width: "45px", height: "18px" }}
-              />
-              {item.type}
               <CustomCheckbox
-                name={item.type}
-                value={item.type}
+                name={item}
+                value={item}
                 checked={checkedState[index]}
                 index={index}
                 handleOnChangeProp={handleOnChange}
               />
+              {item}
             </label>
           </li>
         ))}
@@ -51,4 +44,4 @@ function LensType({closeModal}) {
   );
 }
 
-export default LensType;
+export default Price;

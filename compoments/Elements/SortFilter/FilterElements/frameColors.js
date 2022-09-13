@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FrameColorsList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ColorFrame, ListStyled, Wrapper } from "./frameColors.style";
-function FrameColors() {
+function FrameColors({closeModal}) {
   const [checkedState, setCheckedState] = useState(
     new Array(FrameColorsList.length).fill(false)
   );
@@ -20,6 +20,7 @@ function FrameColors() {
       item ? FrameColorsList[index].color : ""
     );
     const clearedArra = transformedArray.filter((item) => item);
+    closeModal();
 
     console.log(clearedArra);
   };
