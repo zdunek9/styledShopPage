@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ListStyled, Wrapper } from "./price.style";
+import { motion } from "framer-motion";
 
 function Price({ closeModal }) {
   const [checkedState, setCheckedState] = useState(new Array(3).fill(false));
@@ -22,7 +23,7 @@ function Price({ closeModal }) {
     closeModal();
   };
   return (
-    <Wrapper>
+    <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>
         {priceList.map((item, index) => (
           <li key={index}>

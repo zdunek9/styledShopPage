@@ -5,7 +5,7 @@ export const BrandsList = [
   "Calvin Klein",
   "Dolce&Gabbana",
   "Jimmy Choo",
-  " Marni",
+  "Marni",
   "Polaroid",
   "Prada",
   "Ray-Ban",
@@ -56,6 +56,8 @@ export const LensColorsList = [
   { color: "Violet", code: "#9B26B6" },
   { color: "Blue", code: "#2E86C1" },
 ];
+
+export const LensColorTypeList = ["Gradient", "Mirror", "Prizm", "Solid"];
 
 export const LensTypeList = [
   { type: "Round eye", imageSource: "/Images/glasstype1.png" },

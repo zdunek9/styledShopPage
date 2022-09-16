@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { LensTypeList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ListStyled, Wrapper } from "./lensType.style";
+import { motion } from "framer-motion";
+
 
 function LensType({closeModal}) {
   const [checkedState, setCheckedState] = useState(
@@ -24,7 +26,7 @@ function LensType({closeModal}) {
     closeModal();
   };
   return (
-    <Wrapper>
+    <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>
         {LensTypeList.map((item, index) => (
           <li key={index}>

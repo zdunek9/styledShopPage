@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { SortByStyle } from "./sortBy.style";
+import { motion } from "framer-motion";
 
 function SortBy() {
   const [selectedFilter, setSelectedFilter] = useState("1");
 
   return (
-    <SortByStyle>
+    <SortByStyle
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <form>
         <label>
           <input

@@ -3,7 +3,12 @@ import { useState } from "react";
 import { FrameColorsList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ColorFrame, ListStyled, Wrapper } from "./frameColors.style";
-function FrameColors({closeModal}) {
+import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { counterActions } from "../../../../redux/store";
+
+function FrameColors({ closeModal }) {
+  const dispatch = useDispatch();
   const [checkedState, setCheckedState] = useState(
     new Array(FrameColorsList.length).fill(false)
   );
@@ -22,10 +27,10 @@ function FrameColors({closeModal}) {
     const clearedArra = transformedArray.filter((item) => item);
     closeModal();
 
-    console.log(clearedArra);
+    dispatch(counterActions.filterFrame(clearedArra));
   };
   return (
-    <Wrapper>
+    <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>
         {FrameColorsList.map((item, index) => (
           <li key={index}>

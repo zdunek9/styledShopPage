@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LensColorsList } from "../../../Data/FilterData";
+import { LensColorsList, LensColorTypeList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import {
   ButtonWrapper,
@@ -10,20 +10,27 @@ import {
 } from "./lensColor.style";
 import { GrCheckboxSelected } from "react-icons/gr";
 import { ListStyled } from "./lensColor.style";
+import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { counterActions } from "../../../../redux/store";
 
 function LensColor({ closeModal }) {
+  const dispatch = useDispatch();
+
   const [checkedState, setCheckedState] = useState(
     new Array(LensColorsList.length).fill(false)
   );
   const [selectedType, setSelectedType] = useState(new Array(4).fill(false));
 
   useEffect(() => {}, [checkedState]);
+
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
     setCheckedState(updatedCheckedState);
   };
+
   const selectType = (selectedUserType) => {
     const updatedCheckedState = selectedType.map((item, index) =>
       index === selectedUserType ? !item : item
@@ -35,20 +42,24 @@ function LensColor({ closeModal }) {
     const transformedArray = checkedState.map((item, index) =>
       item ? LensColorsList[index].color : ""
     );
+    const transformedArrayType = selectedType.map((item, index) =>
+      item ? LensColorTypeList[index] : ""
+    );
+    const clearedArraType = transformedArrayType.filter((item) => item);
     const clearedArra = transformedArray.filter((item) => item);
-    console.log(clearedArra);
-    console.log(selectedType);
+
+    dispatch(counterActions.filterLensColor([clearedArra, clearedArraType]));
+    // dispatch(counterActions.filterLensColorType(clearedArraType));
     closeModal();
   };
 
   const clearFilters = () => {
     const clearedFilters = checkedState.fill(false);
     setSelectedType(clearedFilters);
-    console.log("clear");
   };
 
   return (
-    <Wrapper>
+    <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <WrapperParting>
         <LensColorType>
           <h3>Type</h3>
