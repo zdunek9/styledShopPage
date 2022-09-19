@@ -14,30 +14,36 @@ const counterSlice = createSlice({
   reducers: {
     filterBrand(state, action) {
       const filterItems = action.payload.filter((item) => item);
+      const frameColorFilterEmpty = state.frameColorFilter.filter(
+        (item) => item
+      );
+      const lensColorFilterEmpty = state.lensColorFilter.filter((item) => item);
       state.brandFilter = action.payload;
 
       if (filterItems.length === 0) {
-        state.filtredArray = state.items.filter((item) => item.brand !== "");
-        if (state.frameColorFilter.length === 0) {
+        const array = state.items.filter((item) => item.brand !== "");
+        state.filtredArray = array;
+
+        if (frameColorFilterEmpty.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.frameColor !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.frameColorFilter.filter((item2) => item2 === item.frameColor)
+            state.frameColorFilter.find((item2) => item2 === item.frameColor)
           );
           state.filtredArray = tempArray;
         }
 
-        if (state.lensColorFilter.length === 0) {
+        if (lensColorFilterEmpty.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.lensColor !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.lensColorFilter.filter((item2) => item2 === item.lensColor)
+            state.lensColorFilter.find((item2) => item2 === item.lensColor)
           );
           state.filtredArray = tempArray;
         }
@@ -45,26 +51,26 @@ const counterSlice = createSlice({
         state.filtredArray = state.items.filter((item) =>
           state.brandFilter.find((item2) => item2 === item.brand)
         );
-        if (state.frameColorFilter.length === 0) {
+        if (frameColorFilterEmpty.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.frameColor !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.frameColorFilter.filter((item2) => item2 === item.frameColor)
+            state.frameColorFilter.find((item2) => item2 === item.frameColor)
           );
           state.filtredArray = tempArray;
         }
 
-        if (state.lensColorFilter.length === 0) {
+        if (lensColorFilterEmpty.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.lensColor !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.lensColorFilter.filter((item2) => item2 === item.lensColor)
+            state.lensColorFilter.find((item2) => item2 === item.lensColor)
           );
           state.filtredArray = tempArray;
         }
@@ -73,49 +79,130 @@ const counterSlice = createSlice({
 
     filterFrameColor(state, action) {
       const filterItems = action.payload.filter((item) => item);
+      const brandEmptyFilter = state.brandFilter.filter((item) => item);
+      const lensColorFilterEmpty = state.lensColorFilter.filter((item) => item);
+
       state.frameColorFilter = action.payload;
 
       if (filterItems.length === 0) {
-        state.filtredArray = state.items.filter(
-          (item) => item.frameColor !== ""
-        );
+        const array = state.items.filter((item) => item.frameColor !== "");
+        state.filtredArray = array;
 
-        if (state.brandFilter.length === 0) {
+        if (brandEmptyFilter.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.brand !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.brandFilter.filter((item2) => item2 === item.brand)
+            state.brandFilter.find((item2) => item2 === item.brand)
           );
           state.filtredArray = tempArray;
         }
 
-        if (state.lensColorFilter.length === 0) {
+        if (lensColorFilterEmpty.length === 0) {
           const tempArray = state.filtredArray.filter(
             (item) => item.lensColor !== ""
           );
           state.filtredArray = tempArray;
         } else {
           const tempArray = state.filtredArray.filter((item) =>
-            state.lensColorFilter.filter((item2) => item2 === item.lensColor)
+            state.lensColorFilter.find((item2) => item2 === item.lensColor)
+          );
+          state.filtredArray = tempArray;
+        }
+      } else {
+        state.filtredArray = state.items.filter((item) =>
+          state.frameColorFilter.find((item2) => item2 === item.frameColor)
+        );
+        if (brandEmptyFilter.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.brand !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.brandFilter.find((item2) => item2 === item.brand)
           );
           state.filtredArray = tempArray;
         }
 
-        return;
+        if (lensColorFilterEmpty.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.lensColor !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.lensColorFilter.find((item2) => item2 === item.lensColor)
+          );
+          state.filtredArray = tempArray;
+        }
       }
-
-      // state.filtredArray = state.items.filter((item) =>
-      //   filterItems.find((filterItem) => item.frameColor === filterItem)
-      // );
-      const tempArray = state.filtredArray.filter((item) =>
-        filterItems.filter((item2) => item.frameColor === item2)
-      );
-      state.filtredArray = tempArray;
     },
-    filterLensColor(state, action) {},
+    filterLensColor(state, action) {
+      const filterItems = action.payload.filter((item) => item);
+      const brandEmptyFilter = state.brandFilter.filter((item) => item);
+      const frameColorFilterEmpty = state.frameColorFilter.filter((item) => item);
+
+      state.lensColorFilter = action.payload;
+
+      if (filterItems.length === 0) {
+        const array = state.items.filter((item) => item.lensColor !== "");
+        state.filtredArray = array;
+
+        if (brandEmptyFilter.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.brand !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.brandFilter.find((item2) => item2 === item.brand)
+          );
+          state.filtredArray = tempArray;
+        }
+
+        if (frameColorFilterEmpty.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.frameColor !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.frameColorFilter.find((item2) => item2 === item.frameColor)
+          );
+          state.filtredArray = tempArray;
+        }
+      } else {
+        state.filtredArray = state.items.filter((item) =>
+          state.lensColorFilter.find((item2) => item2 === item.lensColor)
+        );
+        if (brandEmptyFilter.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.brand !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.brandFilter.find((item2) => item2 === item.brand)
+          );
+          state.filtredArray = tempArray;
+        }
+
+        if (frameColorFilterEmpty.length === 0) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.frameColor !== ""
+          );
+          state.filtredArray = tempArray;
+        } else {
+          const tempArray = state.filtredArray.filter((item) =>
+            state.frameColorFilter.find((item2) => item2 === item.frameColor)
+          );
+          state.filtredArray = tempArray;
+        }
+      }
+    },
   },
 });
 const store = configureStore({

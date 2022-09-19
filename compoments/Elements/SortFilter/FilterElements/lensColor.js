@@ -11,18 +11,24 @@ import {
 import { GrCheckboxSelected } from "react-icons/gr";
 import { ListStyled } from "./lensColor.style";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import { counterActions } from "../../../../redux/store";
 
 function LensColor({ closeModal }) {
   const dispatch = useDispatch();
+  const filterItemList = useSelector((state) => state.counter.lensColorFilter);
 
-  const [checkedState, setCheckedState] = useState(
-    new Array(LensColorsList.length).fill(false)
-  );
+
+  const [checkedState, setCheckedState] = useState(filterItemList);
   const [selectedType, setSelectedType] = useState(new Array(4).fill(false));
 
-  useEffect(() => {}, [checkedState]);
+  useEffect(() => {
+    const loadCheckedState = LensColorsList.map((item, index) =>
+      item.color === filterItemList[index] ? item : ""
+    );
+    setCheckedState(loadCheckedState);
+  }, []);
 
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
@@ -45,11 +51,8 @@ function LensColor({ closeModal }) {
     const transformedArrayType = selectedType.map((item, index) =>
       item ? LensColorTypeList[index] : ""
     );
-    const clearedArraType = transformedArrayType.filter((item) => item);
-    const clearedArra = transformedArray.filter((item) => item);
 
-    dispatch(counterActions.filterLensColor([clearedArra, clearedArraType]));
-    // dispatch(counterActions.filterLensColorType(clearedArraType));
+    dispatch(counterActions.filterLensColor(transformedArray));
     closeModal();
   };
 

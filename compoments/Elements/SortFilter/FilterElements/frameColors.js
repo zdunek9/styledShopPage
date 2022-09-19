@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FrameColorsList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ColorFrame, ListStyled, Wrapper } from "./frameColors.style";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../../../redux/store";
 
 function FrameColors({ closeModal }) {
   const dispatch = useDispatch();
-  const [checkedState, setCheckedState] = useState(
-    new Array(FrameColorsList.length).fill(false)
-  );
+  const filterItemList = useSelector((state) => state.counter.frameColorFilter);
+
+  const [checkedState, setCheckedState] = useState(filterItemList);
+
+  useEffect(() => {
+    const loadCheckedState = FrameColorsList.map((item, index) =>
+      item.color === filterItemList[index] ? item : ""
+    );
+    setCheckedState(loadCheckedState);
+  }, []);
 
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
@@ -24,11 +31,12 @@ function FrameColors({ closeModal }) {
     const transformedArray = checkedState.map((item, index) =>
       item ? FrameColorsList[index].color : ""
     );
-    const clearedArra = transformedArray.filter((item) => item);
+    // const clearedArra = transformedArray.filter((item) => item);
     closeModal();
 
-    dispatch(counterActions.filterFrameColor(clearedArra));
+    dispatch(counterActions.filterFrameColor(transformedArray));
   };
+  // console.log(checkedState);
   return (
     <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>

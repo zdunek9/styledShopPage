@@ -30,10 +30,10 @@ function Brands({ closeModal }) {
     const transformedArray = checkedState.map((item, index) =>
       item ? BrandsList[index] : ""
     );
-    // console.log(transformedArray)
     dispatch(counterActions.filterBrand(transformedArray));
     closeModal();
   };
+
   return (
     <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>
