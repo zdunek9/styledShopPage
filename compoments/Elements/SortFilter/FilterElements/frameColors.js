@@ -27,7 +27,7 @@ function FrameColors({ closeModal }) {
     const clearedArra = transformedArray.filter((item) => item);
     closeModal();
 
-    dispatch(counterActions.filterFrame(clearedArra));
+    dispatch(counterActions.filterFrameColor(clearedArra));
   };
   return (
     <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

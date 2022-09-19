@@ -54,8 +54,8 @@ export const ItemListData = [
     lensColor: "Grey",
   },
   {
-    brand: "Marini",
-    name: "Marini2",
+    brand: "Marni",
+    name: "Marni2",
     frameColor: "Grey",
     lensColor: "Grey",
   },
@@ -66,8 +66,8 @@ export const ItemListData = [
     lensColor: "Grey",
   },
   {
-    brand: "Marini",
-    name: "Marini3",
+    brand: "Marni",
+    name: "Marni3",
     frameColor: "Grey",
     lensColor: "Silver",
   },
