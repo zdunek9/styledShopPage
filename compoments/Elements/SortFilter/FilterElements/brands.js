@@ -34,6 +34,7 @@ function Brands({ closeModal }) {
     closeModal();
   };
 
+
   return (
     <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>

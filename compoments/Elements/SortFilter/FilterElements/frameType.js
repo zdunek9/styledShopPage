@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LensTypeList } from "../../../Data/FilterData";
 import CustomCheckbox from "../../CustomCheckbox";
-import { ListStyled, Wrapper } from "./lensType.style";
+import { ListStyled, Wrapper } from "./frameType.style";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { counterActions } from "../../../../redux/store";
 
+function LensType({ closeModal }) {
+  const dispatch = useDispatch();
+  const filterItemList = useSelector((state) => state.counter.frameTypeFilter);
 
-function LensType({closeModal}) {
-  const [checkedState, setCheckedState] = useState(
-    new Array(LensTypeList.length).fill(false)
-  );
+  const [checkedState, setCheckedState] = useState(filterItemList);
+
+  useEffect(() => {
+    const loadCheckedState = LensTypeList.map((item, index) =>
+      item.type === filterItemList[index] ? item : ""
+    );
+    setCheckedState(loadCheckedState);
+  }, []);
 
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
@@ -16,13 +25,12 @@ function LensType({closeModal}) {
     );
     setCheckedState(updatedCheckedState);
   };
-
   const submitFilters = () => {
     const transformedArray = checkedState.map((item, index) =>
       item ? LensTypeList[index].type : ""
     );
-    const clearedArra = transformedArray.filter((item) => item);
-    console.log(clearedArra);
+    dispatch(counterActions.filterFrameType(transformedArray));
+
     closeModal();
   };
   return (

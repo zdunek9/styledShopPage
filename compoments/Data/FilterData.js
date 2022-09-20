@@ -66,3 +66,4 @@ export const LensTypeList = [
   { type: "Aviator", imageSource: "/Images/glasstype4.png" },
   { type: "Clubmaster", imageSource: "/Images/glasstype5.png" },
 ];
+export const PriceList = ["Under $200", "$200-$300", "$300 And Over"];

@@ -18,16 +18,24 @@ import { counterActions } from "../../../../redux/store";
 function LensColor({ closeModal }) {
   const dispatch = useDispatch();
   const filterItemList = useSelector((state) => state.counter.lensColorFilter);
-
+  const filterItemTypeList = useSelector(
+    (state) => state.counter.lensColorTypeFilter
+  );
 
   const [checkedState, setCheckedState] = useState(filterItemList);
-  const [selectedType, setSelectedType] = useState(new Array(4).fill(false));
+  const [selectedType, setSelectedType] = useState(filterItemTypeList);
 
   useEffect(() => {
     const loadCheckedState = LensColorsList.map((item, index) =>
       item.color === filterItemList[index] ? item : ""
     );
     setCheckedState(loadCheckedState);
+
+    const loadCheckedState2 = LensColorTypeList.map((item, index) =>
+      item === filterItemTypeList[index] ? item : ""
+    );
+    setCheckedState(loadCheckedState);
+    setSelectedType(loadCheckedState2);
   }, []);
 
   const handleOnChange = (position) => {
@@ -52,13 +60,15 @@ function LensColor({ closeModal }) {
       item ? LensColorTypeList[index] : ""
     );
 
-    dispatch(counterActions.filterLensColor(transformedArray));
+    dispatch(
+      counterActions.filterLensColor([transformedArray, transformedArrayType])
+    );
     closeModal();
   };
 
   const clearFilters = () => {
-    const clearedFilters = checkedState.fill(false);
-    setSelectedType(clearedFilters);
+    // const clearedFilters = checkedState.fill(false);
+    // setSelectedType(clearedFilters);
   };
 
   return (

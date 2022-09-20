@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomCheckbox from "../../CustomCheckbox";
 import { ListStyled, Wrapper } from "./price.style";
 import { motion } from "framer-motion";
+import { PriceList } from "../../../Data/FilterData";
+import { counterActions } from "../../../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 
 function Price({ closeModal }) {
-  const [checkedState, setCheckedState] = useState(new Array(3).fill(false));
-  const priceList = ["Under $200", "$200-$300", "$300 And Over"];
+  const dispatch = useDispatch();
+  const filterItemList = useSelector((state) => state.counter.priceFilter);
+  const [checkedState, setCheckedState] = useState(filterItemList);
+
+  useEffect(() => {
+    const loadCheckedState = PriceList.map((item, index) =>
+      item === filterItemList[index] ? item : ""
+    );
+    setCheckedState(loadCheckedState);
+  }, []);
 
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
@@ -16,16 +27,16 @@ function Price({ closeModal }) {
 
   const submitFilters = () => {
     const transformedArray = checkedState.map((item, index) =>
-      item ? priceList[index] : ""
+      item ? PriceList[index] : ""
     );
-    const clearedArra = transformedArray.filter((item) => item);
-    console.log(clearedArra);
+    dispatch(counterActions.filterPrice(transformedArray));
+
     closeModal();
   };
   return (
     <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ListStyled>
-        {priceList.map((item, index) => (
+        {PriceList.map((item, index) => (
           <li key={index}>
             <label>
               <CustomCheckbox
