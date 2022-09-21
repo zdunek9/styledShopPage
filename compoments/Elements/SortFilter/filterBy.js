@@ -24,6 +24,9 @@ function FilterBy() {
   const filterLensTypeItemList = useSelector(
     (state) => state.counter.frameTypeFilter
   );
+  const filterPriceItemList = useSelector(
+    (state) => state.counter.priceFilter
+  );
 
   const listBrandLength = filterBrandItemList.filter((item) => item).length;
   const listFrameColorLength = filterFrameColorItemList.filter(
@@ -38,6 +41,7 @@ function FilterBy() {
   const listLensTypeLength = filterLensTypeItemList.filter(
     (item) => item
   ).length;
+  const listPriceTypeLength = filterPriceItemList.filter((item) => item).length;
 
   const changeFilterHandler = (category) => {
     const updateChangeFilter = changeFilter.map((item, index) =>
@@ -67,12 +71,15 @@ function FilterBy() {
       {changeFilter[2] && (
         <LensColor closeModal={() => changeFilterHandler(2)} />
       )}
-      <div onClick={() => changeFilterHandler(3)}>Type {listLensTypeLength > 0 ? `(${listLensTypeLength})` : ""}
-</div>
+      <div onClick={() => changeFilterHandler(3)}>
+        Type {listLensTypeLength > 0 ? `(${listLensTypeLength})` : ""}
+      </div>
       {changeFilter[3] && (
         <LensType closeModal={() => changeFilterHandler(3)} />
       )}
-      <div onClick={() => changeFilterHandler(4)}>Price</div>
+      <div onClick={() => changeFilterHandler(4)}>
+        Price {listPriceTypeLength > 0 ? `(${listPriceTypeLength})` : ""}
+      </div>
       {changeFilter[4] && <Price closeModal={() => changeFilterHandler(4)} />}
     </Wrapper>
   );

@@ -86,25 +86,41 @@ const counterSlice = createSlice({
         state.filtredArray = tempArray;
       }
 
-      if (priceFilterEmpty.length === 0) {
+      if (
+        priceFilterEmpty.length === 0 ||
+        (priceFilterEmpty[0] && priceFilterEmpty[1] && priceFilterEmpty[2])
+      ) {
         const tempArray = state.filtredArray.filter(
           (item) => item.price !== ""
         );
         state.filtredArray = tempArray;
       } else {
-        if (priceFilter[0]) {
+        if (priceFilterEmpty[0] && priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300 || item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1] && priceFilterEmpty[2]) {
           const tempArray = state.filtredArray.filter(
             (item) => item.price > 200
           );
           state.filtredArray = tempArray;
-        }
-        if (priceFilter[1]) {
+        } else if (priceFilterEmpty[0]) {
           const tempArray = state.filtredArray.filter(
-            (item) => 200 < item.price < 300
+            (item) => item.price < 200
           );
           state.filtredArray = tempArray;
-        }
-        if (priceFilter[2]) {
+        } else if (priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300 && item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[2]) {
           const tempArray = state.filtredArray.filter(
             (item) => item.price > 300
           );
@@ -120,6 +136,7 @@ const counterSlice = createSlice({
         (item) => item
       );
       const frameTypeFilterEmpty = state.frameTypeFilter.filter((item) => item);
+      const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
       state.frameColorFilter = action.payload;
 
@@ -179,6 +196,47 @@ const counterSlice = createSlice({
         );
         state.filtredArray = tempArray;
       }
+      if (
+        priceFilterEmpty.length === 0 ||
+        (priceFilterEmpty[0] && priceFilterEmpty[1] && priceFilterEmpty[2])
+      ) {
+        const tempArray = state.filtredArray.filter(
+          (item) => item.price !== ""
+        );
+        state.filtredArray = tempArray;
+      } else {
+        if (priceFilterEmpty[0] && priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300 || item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300 && item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300
+          );
+          state.filtredArray = tempArray;
+        }
+      }
     },
     filterLensColor(state, action) {
       const filterItemsColor = action.payload[0].filter((item) => item);
@@ -189,30 +247,46 @@ const counterSlice = createSlice({
         (item) => item
       );
       const frameTypeFilterEmpty = state.frameTypeFilter.filter((item) => item);
+      const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
       state.lensColorFilter = action.payload[0];
       state.lensColorTypeFilter = action.payload[1];
 
-      if (filterItemsColor.length === 0) {
-        const array = state.items.filter((item) => item.lensColor !== "");
-        state.filtredArray = array;
-      } else {
-        state.filtredArray = state.items.filter((item) =>
-          state.lensColorFilter.find((item2) => item2 === item.lensColor)
+      if (filterItemsColor.length === 0 && filterItemsType.length === 0) {
+        const array = state.items.filter(
+          (item) => item.lensColor !== "" || item.lensColorType !== ""
         );
-      }
-
-      if (filterItemsType.length === 0) {
-        const array = state.filtredArray.filter(
+        state.filtredArray = array;
+      } else if (filterItemsColor.length > 0 && filterItemsType.length === 0) {
+        state.filtredArray = state.items.filter(
           (item) => item.lensColorType !== ""
         );
-        state.filtredArray = array;
-      } else {
-        state.filtredArray = state.filtredArray.filter((item) =>
+        const tempArray = state.filtredArray.filter((item) =>
+          state.lensColorFilter.find((item2) => item2 === item.lensColor)
+        );
+        state.filtredArray = tempArray;
+      } else if (filterItemsColor.length === 0 && filterItemsType.length > 0) {
+        state.filtredArray = state.items.filter(
+          (item) => item.lensColor !== ""
+        );
+        const tempArray = state.filtredArray.filter((item) =>
           state.lensColorTypeFilter.find(
             (item2) => item2 === item.lensColorType
           )
         );
+        state.filtredArray = tempArray;
+      } else {
+        const tempArray = state.filtredArray.filter((item) =>
+          state.lensColorFilter.find((item2) => item2 === item.lensColor)
+        );
+        state.filtredArray = tempArray;
+
+        const tempArray2 = state.filtredArray.filter((item) =>
+          state.lensColorTypeFilter.find(
+            (item2) => item2 === item.lensColorType
+          )
+        );
+        state.filtredArray = tempArray2;
       }
 
       if (brandEmptyFilter.length === 0) {
@@ -249,6 +323,47 @@ const counterSlice = createSlice({
         );
         state.filtredArray = tempArray;
       }
+      if (
+        priceFilterEmpty.length === 0 ||
+        (priceFilterEmpty[0] && priceFilterEmpty[1] && priceFilterEmpty[2])
+      ) {
+        const tempArray = state.filtredArray.filter(
+          (item) => item.price !== ""
+        );
+        state.filtredArray = tempArray;
+      } else {
+        if (priceFilterEmpty[0] && priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300 || item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300 && item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300
+          );
+          state.filtredArray = tempArray;
+        }
+      }
     },
     filterFrameType(state, action) {
       const filterItems = action.payload.filter((item) => item);
@@ -260,6 +375,7 @@ const counterSlice = createSlice({
         (item) => item
       );
       const brandEmptyFilter = state.brandFilter.filter((item) => item);
+      const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
       state.frameTypeFilter = action.payload;
       if (filterItems.length === 0) {
@@ -318,6 +434,47 @@ const counterSlice = createSlice({
         );
         state.filtredArray = tempArray;
       }
+      if (
+        priceFilterEmpty.length === 0 ||
+        (priceFilterEmpty[0] && priceFilterEmpty[1] && priceFilterEmpty[2])
+      ) {
+        const tempArray = state.filtredArray.filter(
+          (item) => item.price !== ""
+        );
+        state.filtredArray = tempArray;
+      } else {
+        if (priceFilterEmpty[0] && priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300 || item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1] && priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[0]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[1]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300 && item.price > 200
+          );
+          state.filtredArray = tempArray;
+        } else if (priceFilterEmpty[2]) {
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300
+          );
+          state.filtredArray = tempArray;
+        }
+      }
     },
     filterPrice(state, action) {
       const filterItems = action.payload.filter((item) => item);
@@ -333,26 +490,34 @@ const counterSlice = createSlice({
 
       state.priceFilter = action.payload;
 
-      if (filterItems.length === 0) {
+      if (
+        filterItems.length === 0 ||
+        (action.payload[0] && action.payload[1] && action.payload[2])
+      ) {
         const array = state.items.filter((item) => item.price !== "");
         state.filtredArray = array;
       } else {
-        if (action.payload[0]) {
+        if (action.payload[0] && action.payload[1]) {
+          const tempArray = state.items.filter((item) => item.price < 300);
+          state.filtredArray = tempArray;
+        } else if (action.payload[0] && action.payload[2]) {
           const tempArray = state.items.filter(
-            (item) => item.price < 200
+            (item) => item.price > 300 || item.price < 200
           );
           state.filtredArray = tempArray;
-        }
-        if (action.payload[1]) {
+        } else if (action.payload[1] && action.payload[2]) {
+          const tempArray = state.items.filter((item) => item.price > 200);
+          state.filtredArray = tempArray;
+        } else if (action.payload[0]) {
+          const tempArray = state.items.filter((item) => item.price < 200);
+          state.filtredArray = tempArray;
+        } else if (action.payload[1]) {
           const tempArray = state.items.filter(
             (item) => item.price < 300 && item.price > 200
           );
           state.filtredArray = tempArray;
-        }
-        if (action.payload[2]) {
-          const tempArray = state.items.filter(
-            (item) => item.price > 300
-          );
+        } else if (action.payload[2]) {
+          const tempArray = state.items.filter((item) => item.price > 300);
           state.filtredArray = tempArray;
         }
       }
