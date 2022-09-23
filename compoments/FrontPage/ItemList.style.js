@@ -1,13 +1,29 @@
 import styled from "styled-components";
 export const Wrapper = styled.div`
-  width: 100%;
+  margin-top: 20px;
   flex-grow: 1;
-  margin: 5px;
   flex-wrap: wrap;
   display: flex;
 `;
 export const SingleItem = styled.div`
-  width: 15vw;
-  height: 25vh;
-  background-color: ${(props) => props.theme.darkerHover};
+  width: calc(25% - 40px);
+  min-width: 200px;
+  height: 28vh;
+  min-height: 200px;
+  margin: 30px 20px;
+  cursor: pointer;
+  border:1px solid gray;
+  border-radius:10px;
+  overflow:hidden;
+`;
+export const ItemDetails = styled.div`
+  padding: 15px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  p {
+    font-size: 0.8rem;
+  }
 `;

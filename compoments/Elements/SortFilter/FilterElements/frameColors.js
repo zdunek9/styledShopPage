@@ -38,7 +38,11 @@ function FrameColors({ closeModal }) {
   };
   // console.log(checkedState);
   return (
-    <Wrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <Wrapper
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <ListStyled>
         {FrameColorsList.map((item, index) => (
           <li key={index}>

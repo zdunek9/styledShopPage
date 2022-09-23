@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Wrapper } from "./filterBy.style";
+import { UnactiveBtn, Wrapper } from "./filterBy.style";
 import Brands from "./FilterElements/brands";
 import FrameColors from "./FilterElements/frameColors";
 import LensColor from "./FilterElements/lensColor";
@@ -11,7 +11,9 @@ import { motion } from "framer-motion";
 
 function FilterBy() {
   const [changeFilter, setChangeFilter] = useState(new Array(5).fill(false));
+  const selectedCat = useSelector((state) => state.counter.selectedCategory);
   const filterBrandItemList = useSelector((state) => state.counter.brandFilter);
+
   const filterFrameColorItemList = useSelector(
     (state) => state.counter.frameColorFilter
   );
@@ -24,9 +26,7 @@ function FilterBy() {
   const filterLensTypeItemList = useSelector(
     (state) => state.counter.frameTypeFilter
   );
-  const filterPriceItemList = useSelector(
-    (state) => state.counter.priceFilter
-  );
+  const filterPriceItemList = useSelector((state) => state.counter.priceFilter);
 
   const listBrandLength = filterBrandItemList.filter((item) => item).length;
   const listFrameColorLength = filterFrameColorItemList.filter(
@@ -55,25 +55,53 @@ function FilterBy() {
         Brands {listBrandLength > 0 ? `(${listBrandLength})` : ""}
       </div>
       {changeFilter[0] && <Brands closeModal={() => changeFilterHandler(0)} />}
-      <div onClick={() => changeFilterHandler(1)}>
-        Frame Colors
-        {listFrameColorLength > 0 ? `(${listFrameColorLength})` : ""}
-      </div>
-      {changeFilter[1] && (
-        <FrameColors closeModal={() => changeFilterHandler(1)} />
+      {selectedCat !== "Contact Lenses" &&
+      selectedCat !== "Lens Fluid" &&
+      selectedCat !== "Eye Drops" &&
+      selectedCat !== "Containers" &&
+      selectedCat !== "Accessories " ? (
+        <div onClick={() => changeFilterHandler(1)}>
+          Frame Colors
+          {listFrameColorLength > 0 ? `(${listFrameColorLength})` : ""}
+        </div>
+      ) : (
+        <UnactiveBtn>Frame Colors</UnactiveBtn>
       )}
-      <div onClick={() => changeFilterHandler(2)}>
-        Lens Color
-        {listLensColorLength + listLensColorTypeLength > 0
-          ? `(${listLensColorLength + listLensColorTypeLength})`
-          : ""}
-      </div>
+      {changeFilter[1] && (
+        <FrameColors
+          closeModal={() => changeFilterHandler(1)}
+          onBlur={() => changeFilterHandler(1)}
+        />
+      )}
+      {selectedCat !== "Contact Lenses" &&
+      selectedCat !== "Lens Fluid" &&
+      selectedCat !== "Eye Drops" &&
+      selectedCat !== "Containers" &&
+      selectedCat !== "Accessories " ? (
+        <div onClick={() => changeFilterHandler(2)}>
+          Lens Color
+          {listLensColorLength + listLensColorTypeLength > 0
+            ? `(${listLensColorLength + listLensColorTypeLength})`
+            : ""}
+        </div>
+      ) : (
+        <UnactiveBtn>Lens Color</UnactiveBtn>
+      )}
       {changeFilter[2] && (
         <LensColor closeModal={() => changeFilterHandler(2)} />
       )}
-      <div onClick={() => changeFilterHandler(3)}>
-        Type {listLensTypeLength > 0 ? `(${listLensTypeLength})` : ""}
-      </div>
+      {selectedCat !== "Contact Lenses" &&
+      selectedCat !== "Lens Fluid" &&
+      selectedCat !== "Eye Drops" &&
+      selectedCat !== "Containers" &&
+      selectedCat !== "Accessories " ? (
+        <div onClick={() => changeFilterHandler(3)}>
+          Type {listLensTypeLength > 0 ? `(${listLensTypeLength})` : ""}
+        </div>
+      ) : (
+        <UnactiveBtn>Type</UnactiveBtn>
+      )}
+
       {changeFilter[3] && (
         <LensType closeModal={() => changeFilterHandler(3)} />
       )}

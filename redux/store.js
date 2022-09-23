@@ -9,6 +9,7 @@ const initialStoreState = {
   lensColorTypeFilter: [],
   frameTypeFilter: [],
   priceFilter: [],
+  selectedCategory: "",
 };
 const counterSlice = createSlice({
   name: "counter",
@@ -27,14 +28,20 @@ const counterSlice = createSlice({
       const frameTypeFilterEmpty = state.frameTypeFilter.filter((item) => item);
       const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
+      const tempArray2 = state.items.filter(
+        (item) => item.type === state.selectedCategory
+      );
+      state.filtredArray = tempArray2;
+
       state.brandFilter = action.payload;
       if (filterItems.length === 0) {
-        const array = state.items.filter((item) => item.brand !== "");
+        const array = state.filtredArray.filter((item) => item.brand !== "");
         state.filtredArray = array;
       } else {
-        state.filtredArray = state.items.filter((item) =>
+        const array = state.filtredArray.filter((item) =>
           state.brandFilter.find((item2) => item2 === item.brand)
         );
+        state.filtredArray = array;
       }
       if (frameColorFilterEmpty.length === 0) {
         const tempArray = state.filtredArray.filter(
@@ -130,6 +137,7 @@ const counterSlice = createSlice({
     },
     filterFrameColor(state, action) {
       const filterItems = action.payload.filter((item) => item);
+      console.log(filterItems);
       const brandEmptyFilter = state.brandFilter.filter((item) => item);
       const lensColorFilterEmpty = state.lensColorFilter.filter((item) => item);
       const lensColorTypeFilterEmpty = state.lensColorTypeFilter.filter(
@@ -138,15 +146,22 @@ const counterSlice = createSlice({
       const frameTypeFilterEmpty = state.frameTypeFilter.filter((item) => item);
       const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
-      state.frameColorFilter = action.payload;
+      const tempArray = state.items.filter(
+        (item) => item.type === state.selectedCategory
+      );
+      state.filtredArray = tempArray;
 
+      state.frameColorFilter = action.payload;
       if (filterItems.length === 0) {
-        const array = state.items.filter((item) => item.frameColor !== "");
+        const array = state.filtredArray.filter(
+          (item) => item.frameColor !== ""
+        );
         state.filtredArray = array;
       } else {
-        state.filtredArray = state.items.filter((item) =>
+        const tempArray = state.filtredArray.filter((item) =>
           state.frameColorFilter.find((item2) => item2 === item.frameColor)
         );
+        state.filtredArray = tempArray;
       }
       if (brandEmptyFilter.length === 0) {
         const tempArray = state.filtredArray.filter(
@@ -237,6 +252,7 @@ const counterSlice = createSlice({
           state.filtredArray = tempArray;
         }
       }
+      console.log(filterItems);
     },
     filterLensColor(state, action) {
       const filterItemsColor = action.payload[0].filter((item) => item);
@@ -251,14 +267,19 @@ const counterSlice = createSlice({
 
       state.lensColorFilter = action.payload[0];
       state.lensColorTypeFilter = action.payload[1];
+      state.frameColorFilter = action.payload;
+      const tempArray = state.items.filter(
+        (item) => item.type === state.selectedCategory
+      );
+      state.filtredArray = tempArray;
 
       if (filterItemsColor.length === 0 && filterItemsType.length === 0) {
-        const array = state.items.filter(
+        const array = state.filtredArray.filter(
           (item) => item.lensColor !== "" || item.lensColorType !== ""
         );
         state.filtredArray = array;
       } else if (filterItemsColor.length > 0 && filterItemsType.length === 0) {
-        state.filtredArray = state.items.filter(
+        state.filtredArray = state.filtredArray.filter(
           (item) => item.lensColorType !== ""
         );
         const tempArray = state.filtredArray.filter((item) =>
@@ -377,12 +398,18 @@ const counterSlice = createSlice({
       const brandEmptyFilter = state.brandFilter.filter((item) => item);
       const priceFilterEmpty = state.priceFilter.filter((item) => item);
 
+      const tempArray = state.items.filter(
+        (item) => item.type === state.selectedCategory
+      );
+      state.filtredArray = tempArray;
       state.frameTypeFilter = action.payload;
       if (filterItems.length === 0) {
-        const array = state.items.filter((item) => item.frameType !== "");
+        const array = state.filtredArray.filter(
+          (item) => item.frameType !== ""
+        );
         state.filtredArray = array;
       } else {
-        state.filtredArray = state.items.filter((item) =>
+        state.filtredArray = state.filtredArray.filter((item) =>
           state.frameTypeFilter.find((item2) => item2 === item.frameType)
         );
       }
@@ -488,36 +515,49 @@ const counterSlice = createSlice({
       );
       const frameTypeFilterEmpty = state.frameTypeFilter.filter((item) => item);
 
+      const tempArray = state.items.filter(
+        (item) => item.type === state.selectedCategory
+      );
+      state.filtredArray = tempArray;
+
       state.priceFilter = action.payload;
 
       if (
         filterItems.length === 0 ||
         (action.payload[0] && action.payload[1] && action.payload[2])
       ) {
-        const array = state.items.filter((item) => item.price !== "");
+        const array = state.filtredArray.filter((item) => item.price !== "");
         state.filtredArray = array;
       } else {
         if (action.payload[0] && action.payload[1]) {
-          const tempArray = state.items.filter((item) => item.price < 300);
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 300
+          );
           state.filtredArray = tempArray;
         } else if (action.payload[0] && action.payload[2]) {
-          const tempArray = state.items.filter(
+          const tempArray = state.filtredArray.filter(
             (item) => item.price > 300 || item.price < 200
           );
           state.filtredArray = tempArray;
         } else if (action.payload[1] && action.payload[2]) {
-          const tempArray = state.items.filter((item) => item.price > 200);
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 200
+          );
           state.filtredArray = tempArray;
         } else if (action.payload[0]) {
-          const tempArray = state.items.filter((item) => item.price < 200);
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price < 200
+          );
           state.filtredArray = tempArray;
         } else if (action.payload[1]) {
-          const tempArray = state.items.filter(
+          const tempArray = state.filtredArray.filter(
             (item) => item.price < 300 && item.price > 200
           );
           state.filtredArray = tempArray;
         } else if (action.payload[2]) {
-          const tempArray = state.items.filter((item) => item.price > 300);
+          const tempArray = state.filtredArray.filter(
+            (item) => item.price > 300
+          );
           state.filtredArray = tempArray;
         }
       }
@@ -580,6 +620,22 @@ const counterSlice = createSlice({
         );
         state.filtredArray = tempArray;
       }
+    },
+    filterCategory(state, action) {
+      state.selectedCategory = action.payload;
+      const tempArray = state.items.filter(
+        (item) => item.type === action.payload
+      );
+      state.filtredArray = tempArray;
+    },
+    categoryChangeRemoveFilters(state) {
+      state.filtredArray = state.items;
+      state.brandFilter = [];
+      state.frameColorFilter = [];
+      state.lensColorFilter = [];
+      state.lensColorTypeFilter = [];
+      state.frameTypeFilter = [];
+      state.priceFilter = [];
     },
   },
 });

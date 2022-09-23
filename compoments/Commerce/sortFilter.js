@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SideWrapper, Wrapper } from "./sortFilter.style";
+import { PartingWrapper, SideWrapper, Wrapper } from "./sortFilter.style";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/Ri";
 import { BsFilterRight } from "react-icons/Bs";
 import SortBy from "../Elements/SortFilter/sortBy";
@@ -22,23 +22,23 @@ function SortFilter() {
     }
   };
   return (
-    <>
       <Wrapper>
-        <p>Category Name</p>
-        <SideWrapper>
-          <div onClick={turnOnSort}>
-            <span>Sort by</span>
-            {sortBy ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
-          </div>
-          {sortBy && <SortBy />}
-          <div onClick={turnOnFilter}>
-            <span>Filter by</span>
-            <BsFilterRight />
-          </div>
-        </SideWrapper>
+        <PartingWrapper>
+          <p>Category Name</p>
+          <SideWrapper>
+            <div onClick={turnOnSort}>
+              <span>Sort by</span>
+              {sortBy ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+            </div>
+            {sortBy && <SortBy />}
+            <div onClick={turnOnFilter}>
+              <span>Filter by</span>
+              <BsFilterRight />
+            </div>
+          </SideWrapper>
+        </PartingWrapper>
+        {filterBy && <FilterBy />}
       </Wrapper>
-      {filterBy && <FilterBy />}
-    </>
   );
 }
 
