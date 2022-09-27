@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -300px;
+  bottom: -280px;
   left: 50px;
   width: 250px;
-  height: 300px;
+  height: 280px;
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;
   display: flex;

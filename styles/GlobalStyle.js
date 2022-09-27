@@ -24,6 +24,7 @@ body{
     min-height: 100vh;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
+    user-select: none;
     
 }
 a,a:link,a:visited,button{

@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -490px;
+  bottom: -450px;
   left: 30vw;
   width: 500px;
-  height: 490px;
+  height: 450px;
   background-color: ${(props) => props.theme.hover1};
   place-content: center;
   display: flex;
@@ -27,6 +27,7 @@ export const Wrapper = styled.div`
 export const ListStyled = styled.ul`
   width: 50%;
   height: 95%;
+  margin-top: 20px;
   z-index: 1;
   list-style-type: none;
   overflow: auto;

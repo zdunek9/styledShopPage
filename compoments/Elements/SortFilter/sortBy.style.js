@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const SortByStyle = styled.div`
   position: absolute;
-  bottom: -220px;
+  bottom: -190px;
   left: -100px;
   width: 200px;
-  height: 200px;
+  height: 170px;
   border: 1px solid rgb(102, 102, 102);
-  background-color: ${props =>props.theme.hover1};
+  background-color: ${(props) => props.theme.hover1};
 
   form {
     margin: 18px;

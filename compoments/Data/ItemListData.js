@@ -1,12 +1,12 @@
 export const ItemListData = [
   {
     id: "1",
-    dateRelease: "2020, 11, 17",
+    dateRelease: "2020/11/17",
     category: "Contact Lenses",
     type: "Contact Lenses",
     price: "211",
     brand: "Marni",
-    name: "Marni Contact Lenses Multicolor",
+    name: "2020, 11, 17 Marni Contact Lenses Multicolor",
     image: "/Images/ContactLens/FreshLookColorblends.jpg",
     frameColor: "Blank",
     lensColorType: "Blank",
@@ -15,7 +15,7 @@ export const ItemListData = [
   },
   {
     id: "2",
-    dateRelease: "2021, 06, 20",
+    dateRelease: "2021/06/20",
     category: "Contact Lenses",
     type: "Lens Fluid",
     price: "97",
@@ -29,7 +29,7 @@ export const ItemListData = [
   },
   {
     id: "3",
-    dateRelease: "2022, 02, 12",
+    dateRelease: "2022/02/12",
     category: "Contact Lenses",
     type: "Eye Drops",
     price: "27",
@@ -43,7 +43,7 @@ export const ItemListData = [
   },
   {
     id: "4",
-    dateRelease: "2018, 12, 12",
+    dateRelease: "2018/12/12",
     category: "Contact Lenses",
     type: "Containers",
     price: "74",
@@ -57,7 +57,7 @@ export const ItemListData = [
   },
   {
     id: "5",
-    dateRelease: "2021, 05, 02",
+    dateRelease: "2021/05/02",
     category: "Contact Lenses",
     type: "Containers",
     price: "12",
@@ -72,12 +72,12 @@ export const ItemListData = [
 
   {
     id: "6",
-    dateRelease: "2022, 06, 27",
+    dateRelease: "2022/06/27",
     category: "Contact Lenses",
     type: "Contact Lenses",
     price: "312",
     brand: "Marni",
-    name: "Contact Lens Marni color Black",
+    name: "2022, 06, 27 Contact Lens Marni color Black",
     image: "/Images/ContactLens/lens1.jpg",
     frameColor: "Blank",
     lensColorType: "Blank",
@@ -86,12 +86,12 @@ export const ItemListData = [
   },
   {
     id: "7",
-    dateRelease: "2020, 11, 10",
+    dateRelease: "2020/11/10",
     category: "Contact Lenses",
     type: "Contact Lenses",
     price: "265",
     brand: "Ray-Ban",
-    name: "Contact Lenses Ray-Ban Color Transparent",
+    name: "2020, 11, 10 Contact Lenses Ray-Ban Color Transparent",
     image: "/Images/ContactLens/lens3.jpg",
     frameColor: "Blank",
     lensColorType: "Blank",
@@ -101,7 +101,7 @@ export const ItemListData = [
   //tutaj frames sie zaczynaja
   {
     id: "8",
-    dateRelease: "2017, 05, 01",
+    dateRelease: "2017/05/01",
     category: "FRAMES",
     type: "Women Frames",
     price: "312",
@@ -115,7 +115,7 @@ export const ItemListData = [
   },
   {
     id: "9",
-    dateRelease: "2017, 10, 20",
+    dateRelease: "2017/10/20",
     category: "FRAMES",
     type: "Women Frames",
     price: "531",
@@ -129,7 +129,7 @@ export const ItemListData = [
   },
   {
     id: "10",
-    dateRelease: "2019, 02, 01",
+    dateRelease: "2019/02/01",
     category: "FRAMES",
     type: "Men Frames",
     price: "643",
@@ -143,7 +143,7 @@ export const ItemListData = [
   },
   {
     id: "11",
-    dateRelease: "2022, 02, 20",
+    dateRelease: "2022/02/20",
     category: "FRAMES",
     type: "Men Frames",
     price: "122",
@@ -157,7 +157,7 @@ export const ItemListData = [
   },
   {
     id: "12",
-    dateRelease: "2021, 07, 04",
+    dateRelease: "2021/07/04",
     category: "FRAMES",
     type: "Children Frames",
     price: "421",
@@ -171,7 +171,7 @@ export const ItemListData = [
   },
   {
     id: "13",
-    dateRelease: "2022, 01, 15",
+    dateRelease: "2022/01/15",
     category: "FRAMES",
     type: "Children Frames",
     price: "249",
@@ -185,7 +185,7 @@ export const ItemListData = [
   },
   {
     id: "14",
-    dateRelease: "2020, 09, 29",
+    dateRelease: "2020/09/29",
     category: "FRAMES",
     type: "Accessories",
     price: "211",
@@ -199,7 +199,7 @@ export const ItemListData = [
   },
   {
     id: "15",
-    dateRelease: "2020, 12, 02",
+    dateRelease: "2020/12/02",
     category: "FRAMES",
     type: "Accessories",
     price: "64",
@@ -213,7 +213,7 @@ export const ItemListData = [
   },
   {
     id: "16",
-    dateRelease: "2016, 06, 14",
+    dateRelease: "2016/06/14",
     category: "FRAMES",
     type: "Ready Glasses",
     price: "213",
@@ -227,7 +227,7 @@ export const ItemListData = [
   },
   {
     id: "17",
-    dateRelease: "2018, 09, 11",
+    dateRelease: "2018/09/11",
     category: "FRAMES",
     type: "Ready Glasses",
     price: "519",
@@ -241,7 +241,7 @@ export const ItemListData = [
   },
   {
     id: "18",
-    dateRelease: "2019, 12, 12",
+    dateRelease: "2019/12/12",
     category: "FRAMES",
     type: "Custom Eyeglass",
     price: "299",
@@ -255,7 +255,7 @@ export const ItemListData = [
   },
   {
     id: "19",
-    dateRelease: "2019, 11, 29",
+    dateRelease: "2019/11/29",
     category: "FRAMES",
     type: "Custom Eyeglass",
     price: "312",
@@ -269,7 +269,7 @@ export const ItemListData = [
   },
   {
     id: "20",
-    dateRelease: "2019, 04, 15",
+    dateRelease: "2019/04/15",
     category: "FRAMES",
     type: "Custom Eyeglass",
     price: "149",

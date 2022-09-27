@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { UnactiveBtn, Wrapper } from "./filterBy.style";
 import Brands from "./FilterElements/brands";
 import FrameColors from "./FilterElements/frameColors";
@@ -6,7 +6,6 @@ import LensColor from "./FilterElements/lensColor";
 import LensType from "./FilterElements/frameType";
 import Price from "./FilterElements/price";
 import { useSelector } from "react-redux";
-
 import { motion } from "framer-motion";
 
 function FilterBy() {

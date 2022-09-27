@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: absolute;
-  bottom: -290px;
+  bottom: -300px;
   right: 17vw;
   width: 250px;
-  height: 290px;
+  height: 300px;
   padding: 15px !important;
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;

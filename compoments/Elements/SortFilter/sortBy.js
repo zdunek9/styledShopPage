@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { SortByStyle } from "./sortBy.style";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { counterActions } from "../../../redux/store";
 
-function SortBy() {
-  const [selectedFilter, setSelectedFilter] = useState("1");
+function SortBy({ closeModal }) {
+  const selectedSortBy = useSelector((state) => state.counter.selectedSort);
+  const [selectedFilter, setSelectedFilter] = useState(selectedSortBy);
+
+  const dispatch = useDispatch();
+  const changeSort = (e) => {
+    setSelectedFilter(e);
+    dispatch(counterActions.sortItems(e));
+    closeModal();
+  };
+  console.log(selectedFilter);
 
   return (
     <SortByStyle
@@ -19,7 +30,7 @@ function SortBy() {
             checked={selectedFilter === "1"}
             name="filter"
             value="1"
-            onChange={(e) => setSelectedFilter(e.target.value)}
+            onChange={(e) => changeSort(e.target.value)}
           />
           Newest
         </label>
@@ -27,23 +38,11 @@ function SortBy() {
         <label>
           <input
             type="radio"
-            id="Relevance"
+            id="Low"
             checked={selectedFilter === "2"}
             name="filter"
             value="2"
-            onChange={(e) => setSelectedFilter(e.target.value)}
-          />
-          Sale
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            id="Low"
-            checked={selectedFilter === "3"}
-            name="filter"
-            value="3"
-            onChange={(e) => setSelectedFilter(e.target.value)}
+            onChange={(e) => changeSort(e.target.value)}
           />
           Price Low - High
         </label>
@@ -52,10 +51,10 @@ function SortBy() {
           <input
             type="radio"
             id="High"
-            checked={selectedFilter === "4"}
+            checked={selectedFilter === "3"}
             name="filter"
-            value="4"
-            onChange={(e) => setSelectedFilter(e.target.value)}
+            value="3"
+            onChange={(e) => changeSort(e.target.value)}
           />
           Price High - Low
         </label>
