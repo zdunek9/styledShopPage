@@ -8,7 +8,6 @@ import {
   Wrapper,
   WrapperParting,
 } from "./lensColor.style";
-import { GrCheckboxSelected } from "react-icons/gr";
 import { ListStyled } from "./lensColor.style";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
