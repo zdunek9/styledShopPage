@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Lens, UnderListLenses, Wrapper } from "./catTopBar.style";
+import { Lens, UnderListLenses, Wrapper } from "./carTopBarMobile.style";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { counterActions } from "../../redux/store";
-import CarTopBarMobile from "./carTopBarMobile";
 
 const showItems = {
   rest: { opacity: 0, ease: "easeOut", duration: 0.2, type: "tween" },
@@ -17,18 +16,28 @@ const showItems = {
   },
 };
 
-function CarTopBar() {
+function CarTopBarMobile() {
   const dispatch = useDispatch();
+  const [showItemMobile, setShowItemMobile] = useState("");
   const selectCategory = (category) => {
     dispatch(counterActions.categoryChangeRemoveFilters());
     dispatch(counterActions.filterCategory(category));
+    setShowItemMobile("");
+  };
+  console.log(showItemMobile);
+
+  const changeSubCategory = (catId) => {
+    if (showItemMobile === catId) {
+      setShowItemMobile("");
+    } else {
+      setShowItemMobile(catId);
+    }
   };
   return (
-    <>
-      <CarTopBarMobile />
-      <Wrapper>
-        <Lens as={motion.li} initial="rest" whileHover="hover" animate="rest">
-          <p>CONTACT LENSES</p>
+    <Wrapper>
+      <Lens>
+        <p onClick={() => changeSubCategory("1")}>CONTACT LENSES</p>
+        {showItemMobile === "1" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
             <li onClick={() => selectCategory("Contact Lenses")}>
               CONTACT LENSES
@@ -37,9 +46,11 @@ function CarTopBar() {
             <li onClick={() => selectCategory("Eye Drops")}>EYE DROPS</li>
             <li onClick={() => selectCategory("Containers")}>CONTAINERS</li>
           </UnderListLenses>
-        </Lens>
-        <Lens as={motion.li} initial="rest" whileHover="hover" animate="rest">
-          <p>FRAMES AND EYEGLASSES</p>
+        )}
+      </Lens>
+      <Lens>
+        <p onClick={() => changeSubCategory("2")}>FRAMES AND EYEGLASSES</p>
+        {showItemMobile === "2" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
             <li onClick={() => selectCategory("Women Frames")}>WOMEN'S</li>
             <li onClick={() => selectCategory("Men Frames")}>MEN'S</li>
@@ -54,9 +65,11 @@ function CarTopBar() {
               CUSTOM EYEGLASS FRAME
             </li>
           </UnderListLenses>
-        </Lens>
-        <Lens as={motion.li} initial="rest" whileHover="hover" animate="rest">
-          <p>SUNGLASSES</p>
+        )}
+      </Lens>
+      <Lens>
+        <p onClick={() => changeSubCategory("3")}>SUNGLASSES</p>
+        {showItemMobile === "3" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
             <li onClick={() => selectCategory("WOMEN SUNGLASSES")}>WOMEN'S</li>
             <li onClick={() => selectCategory("MEN SUNGLASSES")}>MEN'S</li>
@@ -67,10 +80,10 @@ function CarTopBar() {
               ACCESSORIES
             </li>
           </UnderListLenses>
-        </Lens>
-      </Wrapper>
-    </>
+        )}
+      </Lens>
+    </Wrapper>
   );
 }
 
-export default CarTopBar;
+export default CarTopBarMobile;

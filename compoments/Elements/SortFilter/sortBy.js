@@ -12,9 +12,7 @@ function SortBy({ closeModal }) {
   const changeSort = (e) => {
     setSelectedFilter(e);
     dispatch(counterActions.sortItems(e));
-    closeModal();
   };
-  console.log(selectedFilter);
 
   return (
     <SortByStyle

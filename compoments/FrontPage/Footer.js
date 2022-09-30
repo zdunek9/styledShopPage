@@ -2,7 +2,7 @@ import React from "react";
 import { ItemsWrapper, SubTitle, Wrapper } from "./Footer.style";
 import { motion } from "framer-motion";
 import Slider from "../Elements/Slider/Slider";
-
+import { DUMMY_DATA } from "../Data/ItemFrontPageGlasses";
 const loadVariants = {
   hidden: {
     opacity: 0,
@@ -13,7 +13,7 @@ const loadVariants = {
     y: 0,
   },
 };
-function Footer({ data }) {
+function Footer() {
   return (
     <Wrapper
       as={motion.section}
@@ -26,7 +26,7 @@ function Footer({ data }) {
         Trend <br /> Products
       </SubTitle>
       <ItemsWrapper>
-        <Slider data={data} />
+        <Slider data={DUMMY_DATA} />
       </ItemsWrapper>
     </Wrapper>
   );

@@ -16,6 +16,13 @@ export const Wrapper = styled.div`
     border-radius: 7px;
     cursor: pointer;
   }
+  @media (max-width: 700px) {
+    padding: 10px;
+    div{
+      font-size: 0.7rem;
+      padding: 5px;
+    }
+  }
 
 `;
 export const UnactiveBtn = styled.div`

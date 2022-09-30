@@ -23,6 +23,12 @@ export const Wrapper = styled.div`
   button:hover {
     background-color: ${(props) => props.theme.hover1};
   }
+  @media (max-width: 700px) {
+    bottom: -400px;
+    left: 0px;
+    height: 400px;
+    padding: 0px !important
+  }
 `;
 export const ListStyled = styled.ul`
   width: 50%;
@@ -51,6 +57,7 @@ export const ListStyled = styled.ul`
     margin-right: 10px;
     border-radius: 10px;
   }
+  
 `;
 
 export const ColorFrame = styled.span`
@@ -74,6 +81,18 @@ export const LensColorType = styled.div`
     font-weight: 300;
     font-size: 0.7rem;
     margin-bottom: 20px;
+  }
+  @media (max-width: 700px) {
+    h3{
+      font-size: 0.8rem;
+    }
+    h4{
+      font-size: 0.6rem;
+    }
+    p{
+      font-size: 0.6rem;
+      margin-bottom: 15px;
+    }
   }
 `;
 

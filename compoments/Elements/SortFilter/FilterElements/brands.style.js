@@ -20,6 +20,9 @@ export const Wrapper = styled.div`
   button:hover {
     background-color: ${(props) => props.theme.hover1};
   }
+  @media (max-width: 700px) {
+    left: 0px;
+  }
 `;
 export const ListStyled = styled.ul`
   width: 100%;

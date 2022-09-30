@@ -8,7 +8,9 @@ export const SortByStyle = styled.div`
   height: 170px;
   border: 1px solid rgb(102, 102, 102);
   background-color: ${(props) => props.theme.hover1};
-
+  @media (max-width: 700px) {
+    left: 0;
+  }
   form {
     margin: 18px;
     display: flex;

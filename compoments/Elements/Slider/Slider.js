@@ -1,7 +1,6 @@
 import React from "react";
 import { AddButton, NamePrice, NameWrapper, Wrapper } from "./Slider.style";
 import { AiOutlinePlus } from "react-icons/ai";
-// import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import "swiper/css";

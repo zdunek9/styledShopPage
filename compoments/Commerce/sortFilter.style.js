@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   height: 7vh;
   width: 100%;
-  /* border: 1px solid black; */
 `;
 
 export const SideWrapper = styled.div`
@@ -21,6 +20,15 @@ export const SideWrapper = styled.div`
       margin-left: 5px;
     }
   }
+  @media (max-width: 700px) {
+    div {
+      margin: 0 10px;
+
+      svg {
+        font-size: 1.1rem;
+      }
+    }
+  }
 `;
 export const PartingWrapper = styled.div`
   display: flex;
@@ -30,5 +38,12 @@ export const PartingWrapper = styled.div`
   margin: 5px;
   p {
     font-size: 1.6rem;
+  }
+  @media (max-width: 700px) {
+    padding: 0 10px;
+    font-size: 0.7rem;
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;

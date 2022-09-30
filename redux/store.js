@@ -10,7 +10,7 @@ const initialStoreState = {
   frameTypeFilter: [],
   priceFilter: [],
   selectedCategory: "",
-  selectedSort: "1",
+  selectedSort: "",
 };
 const counterSlice = createSlice({
   name: "counter",
@@ -244,7 +244,6 @@ const counterSlice = createSlice({
 
       state.lensColorFilter = action.payload[0];
       state.lensColorTypeFilter = action.payload[1];
-      state.frameColorFilter = action.payload;
       const tempArray = state.items.filter(
         (item) => item.type === state.selectedCategory
       );
@@ -264,7 +263,7 @@ const counterSlice = createSlice({
         );
         state.filtredArray = tempArray;
       } else if (filterItemsColor.length === 0 && filterItemsType.length > 0) {
-        state.filtredArray = state.items.filter(
+        state.filtredArray = state.filtredArray.filter(
           (item) => item.lensColor !== ""
         );
         const tempArray = state.filtredArray.filter((item) =>
@@ -570,7 +569,7 @@ const counterSlice = createSlice({
     },
     filterCategory(state, action) {
       state.selectedCategory = action.payload;
-      state.selectedSort = "1"; // After changing category, sorting option is restarted to default("1")
+      state.selectedSort = ""; // After changing category, sorting option is restarted to default("1")
       const tempArray = state.items.filter(
         (item) => item.type === action.payload
       );
@@ -591,7 +590,7 @@ const counterSlice = createSlice({
       if (action.payload === "1") {
         state.filtredArray.sort(
           (itemA, itemB) =>
-            new Date(itemA.dateRelease) - new Date(itemB.dateRelease)
+            new Date(itemB.dateRelease) - new Date(itemA.dateRelease)
         );
       } else if (action.payload === "2") {
         state.filtredArray.sort((itemA, itemB) => itemA.price - itemB.price);
