@@ -29,6 +29,7 @@ body{
 }
 a,a:link,a:visited,button{
         text-decoration: none;
+        color:inherit;
         background-color: unset;
         font-family: 'Montserrat', sans-serif;
     }

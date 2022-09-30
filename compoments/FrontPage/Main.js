@@ -3,6 +3,7 @@ import Button1 from "../Elements/Button1";
 import { BsArrowDownRightCircle } from "react-icons/bs";
 import { Parting, Title, Wrapper, StyledImage } from "./Main.style";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const loadVariants = {
   hidden: {
@@ -34,7 +35,11 @@ function Main() {
             More than 100 types of assortment
           </p>
           <div>
-            <Button1 text="Start Shopping" color="black" />
+            <Link href="/commerce">
+              <div>
+                <Button1 text="Start Shopping" color="black" />
+              </div>
+            </Link>
             <div>
               <Button1 text="Explore More" />
               <BsArrowDownRightCircle style={{ fontSize: "2rem" }} />

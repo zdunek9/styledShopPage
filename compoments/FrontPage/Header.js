@@ -5,6 +5,7 @@ import { Category, IconShop, Logo, Menu, Wrapper } from "./Header.style";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import logo from "../../public/Images/logo.png";
+import Link from "next/link";
 
 const loadVariants = {
   hidden: {
@@ -27,7 +28,9 @@ function Header() {
     >
       <Category>
         <li>HOME</li>
-        <li>SHOP</li>
+        <li>
+          <Link href="/commerce">SHOP</Link>
+        </li>
         <li>NEW</li>
         <li>SALE</li>
       </Category>
