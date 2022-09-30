@@ -12,8 +12,9 @@ import { GrCheckboxSelected } from "react-icons/gr";
 import { ListStyled } from "./lensColor.style";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-
 import { counterActions } from "../../../../redux/store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 
 function LensColor({ closeModal }) {
   const dispatch = useDispatch();
@@ -77,19 +78,20 @@ function LensColor({ closeModal }) {
         <LensColorType>
           <h3>Type</h3>
           <h4 onClick={() => selectType(0)}>
-            Gradient {selectedType[0] && <GrCheckboxSelected />}
+            Gradient{" "}
+            {selectedType[0] && <FontAwesomeIcon icon={faSquareCheck} />}
           </h4>
           <p>Darker at the top and clearer at the bottom</p>
           <h4 onClick={() => selectType(1)}>
-            Mirror {selectedType[1] && <GrCheckboxSelected />}
+            Mirror {selectedType[1] && <FontAwesomeIcon icon={faSquareCheck} />}
           </h4>
           <p>Reduces glare and strong enviromental reflections</p>
           <h4 onClick={() => selectType(2)}>
-            Prizm {selectedType[2] && <GrCheckboxSelected />}
+            Prizm {selectedType[2] && <FontAwesomeIcon icon={faSquareCheck} />}
           </h4>
           <p>Oakley technology desinged to enhance details</p>
           <h4 onClick={() => selectType(3)}>
-            Solid {selectedType[3] && <GrCheckboxSelected />}
+            Solid {selectedType[3] && <FontAwesomeIcon icon={faSquareCheck} />}
           </h4>
           <p>Uniform tinted lenses in various different colors </p>
         </LensColorType>
