@@ -16,8 +16,11 @@ export const SideWrapper = styled.div`
     align-items: center;
     cursor: pointer;
     svg {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       margin-left: 5px;
+    }
+    svg:nth-child(2) {
+      font-size: 1rem;
     }
   }
   @media (max-width: 700px) {

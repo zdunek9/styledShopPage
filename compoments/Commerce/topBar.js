@@ -1,8 +1,12 @@
 import React from "react";
 import { Image, Options, Wrapper } from "./topBar.style";
-import { GoLocation } from "react-icons/go";
-import { BsArrowRepeat, BsCart2 } from "react-icons/bs";
-import { MdOutlineManageAccounts } from "react-icons/md";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faRepeat,
+  faUserGear,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
   return (
@@ -11,25 +15,25 @@ function TopBar() {
       <Options>
         <div>
           <span>
-            <GoLocation />
+            <FontAwesomeIcon icon={faLocationDot} />
           </span>
           <p>Salons</p>
         </div>
         <div>
           <span>
-            <BsArrowRepeat />
+            <FontAwesomeIcon icon={faRepeat} />
           </span>
           <p>Last Order</p>
         </div>
         <div>
           <span>
-            <MdOutlineManageAccounts />
+            <FontAwesomeIcon icon={faUserGear} />
           </span>
           <p>My account</p>
         </div>
         <div>
           <span>
-            <BsCart2 />
+            <FontAwesomeIcon icon={faShoppingCart} />
           </span>
           <p>Cart (0)</p>
         </div>

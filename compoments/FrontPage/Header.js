@@ -1,11 +1,11 @@
 import React from "react";
-import { TbMenu } from "react-icons/tb";
-import { MdOutlineShoppingBag } from "react-icons/md";
 import { Category, IconShop, Logo, Menu, Wrapper } from "./Header.style";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import logo from "../../public/Images/logo.png";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const loadVariants = {
   hidden: {
@@ -40,10 +40,10 @@ function Header() {
       <Menu>
         <p>Menu</p>
         <div>
-          <TbMenu />
+          <FontAwesomeIcon icon={faBars} />
         </div>
         <IconShop>
-          <MdOutlineShoppingBag />
+          <FontAwesomeIcon icon={faBagShopping} />
         </IconShop>
       </Menu>
     </Wrapper>

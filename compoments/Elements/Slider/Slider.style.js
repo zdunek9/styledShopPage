@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   @media (max-width: 700px) {
     min-width: unset;
     max-width: unset;
-    width:250px;
+    width: 250px;
   }
 `;
 export const NamePrice = styled.div`
@@ -63,6 +63,7 @@ export const AddButton = styled.div`
   padding: 3px;
   color: white;
   display: flex;
+  justify-content: center;
   margin-left: 15px;
   background: rgb(232, 201, 129);
   background: linear-gradient(

@@ -70,7 +70,7 @@ export const Menu = styled.div`
 `;
 export const IconShop = styled.div`
   border-radius: 50%;
-  padding: 10px;
+  padding: 12px;
   min-width: 40px;
   color: white;
   background: rgb(232, 201, 129);
@@ -79,4 +79,7 @@ export const IconShop = styled.div`
     rgba(232, 201, 129, 1) 0%,
     rgba(133, 51, 19, 1) 87%
   );
+  svg{
+    font-size: 1.6rem;
+  }
 `;

@@ -5,8 +5,8 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-height: 1100px){
-      margin: 6vh 0;
+  @media (max-height: 1100px) {
+    margin: 6vh 0;
   }
   @media (max-width: 1000px) {
     margin: 4vh;
@@ -55,6 +55,10 @@ export const Title = styled.div`
     align-items: center;
     * {
       cursor: pointer;
+    }
+    svg {
+      font-size: 1.8rem;
+      transform: translate(90deg);
     }
   }
 `;

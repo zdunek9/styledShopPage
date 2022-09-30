@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { PartingWrapper, SideWrapper, Wrapper } from "./sortFilter.style";
 import { useSelector } from "react-redux";
-import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/Ri";
-import { BsFilterRight } from "react-icons/Bs";
 import SortBy from "../Elements/SortFilter/sortBy";
 import FilterBy from "../Elements/SortFilter/filterBy";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleUp,
+  faAngleDown,
+  faChartSimple,
+} from "@fortawesome/free-solid-svg-icons";
 
 function SortFilter() {
   const [sortBy, setSortBy] = useState(false);
@@ -34,12 +38,16 @@ function SortFilter() {
         <SideWrapper>
           <div onClick={turnOnSort}>
             <span>Sort by</span>
-            {sortBy ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+            {sortBy ? (
+              <FontAwesomeIcon icon={faAngleUp} />
+            ) : (
+              <FontAwesomeIcon icon={faAngleDown} />
+            )}
           </div>
           {sortBy && <SortBy closeModal={() => setSortBy(false)} />}
           <div onClick={turnOnFilter}>
             <span>Filter by</span>
-            <BsFilterRight />
+            <FontAwesomeIcon icon={faChartSimple} />
           </div>
         </SideWrapper>
       </PartingWrapper>

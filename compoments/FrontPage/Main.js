@@ -1,9 +1,10 @@
 import React from "react";
 import Button1 from "../Elements/Button1";
-import { BsArrowDownRightCircle } from "react-icons/bs";
 import { Parting, Title, Wrapper, StyledImage } from "./Main.style";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 
 const loadVariants = {
   hidden: {
@@ -42,7 +43,7 @@ function Main() {
             </Link>
             <div>
               <Button1 text="Explore More" />
-              <BsArrowDownRightCircle style={{ fontSize: "2rem" }} />
+              <FontAwesomeIcon icon={faSquareArrowUpRight} />
             </div>
           </div>
         </Title>
