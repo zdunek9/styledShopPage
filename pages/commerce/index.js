@@ -3,7 +3,7 @@ import CarTopBar from "../../compoments/Commerce/carTopBar";
 import SortFilter from "../../compoments/Commerce/sortFilter";
 import TopBar from "../../compoments/Commerce/topBar";
 import ItemList from "../../compoments/FrontPage/ItemList";
-import { Wrapper } from "./index.style";
+import { Wrapper } from "../../styles/indexCommerce.style";
 
 function CommerceMain() {
   return (
