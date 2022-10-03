@@ -28,9 +28,9 @@ function Header() {
     >
       <Category>
         <li>HOME</li>
-        <li>
-          <Link href="/commerce">SHOP</Link>
-        </li>
+        <Link href="/commerce">
+          <li>SHOP</li>
+        </Link>
         <li>NEW</li>
         <li>SALE</li>
       </Category>

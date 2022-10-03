@@ -41,9 +41,9 @@ function CarTopBar() {
         <Lens as={motion.li} initial="rest" whileHover="hover" animate="rest">
           <p>FRAMES AND EYEGLASSES</p>
           <UnderListLenses as={motion.ul} variants={showItems}>
-            <li onClick={() => selectCategory("Women Frames")}>WOMEN'S</li>
-            <li onClick={() => selectCategory("Men Frames")}>MEN'S</li>
-            <li onClick={() => selectCategory("Children Frames")}>
+            <li onClick={() => selectCategory("Women's Frames")}>WOMEN'S</li>
+            <li onClick={() => selectCategory("Men's Frames")}>MEN'S</li>
+            <li onClick={() => selectCategory("Children's Frames")}>
               CHILDREN'S
             </li>
             <li onClick={() => selectCategory("Accessories")}>ACCESSORIES</li>
@@ -58,12 +58,12 @@ function CarTopBar() {
         <Lens as={motion.li} initial="rest" whileHover="hover" animate="rest">
           <p>SUNGLASSES</p>
           <UnderListLenses as={motion.ul} variants={showItems}>
-            <li onClick={() => selectCategory("WOMEN SUNGLASSES")}>WOMEN'S</li>
-            <li onClick={() => selectCategory("MEN SUNGLASSES")}>MEN'S</li>
-            <li onClick={() => selectCategory("CHILDREN SUNGLASSES")}>
+            <li onClick={() => selectCategory("Women's Sunglasses")}>WOMEN'S</li>
+            <li onClick={() => selectCategory("Mens's Sunglasses")}>MEN'S</li>
+            <li onClick={() => selectCategory("Children's Sunglasses")}>
               CHILDREN'S
             </li>
-            <li onClick={() => selectCategory("ACCESSORIES SUNGLASSES")}>
+            <li onClick={() => selectCategory("Accessories Sunglasses")}>
               ACCESSORIES
             </li>
           </UnderListLenses>

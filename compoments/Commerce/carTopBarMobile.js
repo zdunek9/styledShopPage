@@ -24,7 +24,6 @@ function CarTopBarMobile() {
     dispatch(counterActions.filterCategory(category));
     setShowItemMobile("");
   };
-  console.log(showItemMobile);
 
   const changeSubCategory = (catId) => {
     if (showItemMobile === catId) {
@@ -71,12 +70,12 @@ function CarTopBarMobile() {
         <p onClick={() => changeSubCategory("3")}>SUNGLASSES</p>
         {showItemMobile === "3" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
-            <li onClick={() => selectCategory("WOMEN SUNGLASSES")}>WOMEN'S</li>
-            <li onClick={() => selectCategory("MEN SUNGLASSES")}>MEN'S</li>
-            <li onClick={() => selectCategory("CHILDREN SUNGLASSES")}>
+            <li onClick={() => selectCategory("Womens sunglasses")}>WOMEN'S</li>
+            <li onClick={() => selectCategory("Mens sunglasses")}>MEN'S</li>
+            <li onClick={() => selectCategory("Children sunglasses")}>
               CHILDREN'S
             </li>
-            <li onClick={() => selectCategory("ACCESSORIES SUNGLASSES")}>
+            <li onClick={() => selectCategory("Accessories Sunglasses")}>
               ACCESSORIES
             </li>
           </UnderListLenses>

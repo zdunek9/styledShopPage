@@ -34,7 +34,7 @@ function SortFilter() {
   return (
     <Wrapper>
       <PartingWrapper>
-        <p>Category Name</p>
+        <p>{selectedCat}</p>
         <SideWrapper>
           <div onClick={turnOnSort}>
             <span>Sort by</span>

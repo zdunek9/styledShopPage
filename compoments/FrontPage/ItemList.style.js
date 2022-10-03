@@ -6,23 +6,16 @@ export const Wrapper = styled.div`
   display: flex;
 `;
 export const SingleItem = styled.div`
-  /* width: 350px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 22%;
   height: 270px;
-  /* width: calc(25% - 40px); */
-  /* height: 28vh; */
-  /* min-height: 200px; */
   margin: 30px 20px;
   cursor: pointer;
   border: 1px solid gray;
   border-radius: 10px;
   overflow: hidden;
-  img {
-    object-fit: contain;
-  }
   @media (max-width: 1360px) {
     width: 21%;
     height: 250px;
@@ -48,12 +41,8 @@ export const SingleItem = styled.div`
     height: 200px;
   }
   @media (max-width: 550px) {
-    height: 190px;
+    height: 160px;
     margin: 10px;
-    img {
-      object-fit: fill;
-      height: 50%;
-    }
   }
 `;
 export const ItemDetails = styled.div`
