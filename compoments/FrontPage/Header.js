@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Category, IconShop, Logo, Menu, Wrapper } from "./Header.style";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -6,6 +6,9 @@ import logo from "../../public/Images/logo.png";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faBars } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { counterActions } from "../../redux/store";
+import MenuModal from "./MenuModal/MenuModal";
 
 const loadVariants = {
   hidden: {
@@ -18,35 +21,46 @@ const loadVariants = {
   },
 };
 function Header() {
+  const dispatch = useDispatch();
+  const [loadMenuModal, setLoadMenuModal] = useState(false);
+
   return (
-    <Wrapper
-      as={motion.section}
-      variants={loadVariants}
-      initial="hidden"
-      animate="visible"
-      transition={{ type: "spring", bounce: 0.2, delay: 0.3 }}
-    >
-      <Category>
-        <li>HOME</li>
-        <Link href="/commerce">
-          <li>SHOP</li>
-        </Link>
-        <li>NEW</li>
-        <li>SALE</li>
-      </Category>
-      <Logo>
-        <Image src={logo} />
-      </Logo>
-      <Menu>
-        <p>Menu</p>
-        <div>
-          <FontAwesomeIcon icon={faBars} />
-        </div>
-        <IconShop>
-          <FontAwesomeIcon icon={faBagShopping} />
-        </IconShop>
-      </Menu>
-    </Wrapper>
+    <>
+      {loadMenuModal && <MenuModal />}
+      <Wrapper
+        as={motion.section}
+        variants={loadVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{ type: "spring", bounce: 0.2, delay: 0.3 }}
+      >
+        <Category>
+          <li>HOME</li>
+          <Link href="/commerce">
+            <li>SHOP</li>
+          </Link>
+          <Link href="/commerce">
+            {/* press new lead to commerse with newest filter marked */}
+            <li onClick={() => dispatch(counterActions.sortItems("1"))}>NEW</li>
+          </Link>
+          <li>SALE</li>
+        </Category>
+        <Logo>
+          <Image src={logo} />
+        </Logo>
+        <Menu>
+          <p onClick={() => setLoadMenuModal((prevState) => !prevState)}>
+            Menu
+          </p>
+          <div>
+            <FontAwesomeIcon icon={faBars} />
+          </div>
+          <IconShop>
+            <FontAwesomeIcon icon={faBagShopping} />
+          </IconShop>
+        </Menu>
+      </Wrapper>
+    </>
   );
 }
 

@@ -5,6 +5,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media (max-height: 1100px) {
     margin: 6vh 0;
   }
@@ -66,7 +67,6 @@ export const StyledImage = styled.div`
   border-radius: 25px;
   width: 50%;
   height: fit-content;
-
   @media (max-width: 800px) {
     display: none;
   }

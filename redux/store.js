@@ -586,7 +586,6 @@ const counterSlice = createSlice({
     },
     sortItems(state, action) {
       state.selectedSort = action.payload;
-      console.log(action.payload);
       if (action.payload === "1") {
         state.filtredArray.sort(
           (itemA, itemB) =>

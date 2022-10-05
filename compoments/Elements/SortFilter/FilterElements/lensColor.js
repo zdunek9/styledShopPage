@@ -59,7 +59,6 @@ function LensColor({ closeModal }) {
     const transformedArrayType = selectedType.map((item, index) =>
       item ? LensColorTypeList[index] : ""
     );
-
     dispatch(
       counterActions.filterLensColor([transformedArray, transformedArrayType])
     );
@@ -67,8 +66,13 @@ function LensColor({ closeModal }) {
   };
 
   const clearFilters = () => {
-    // const clearedFilters = checkedState.fill(false);
-    // setSelectedType(clearedFilters);
+    const transformedArray = selectedType.map((item) => (item = false));
+    const transformedArray2 = checkedState.map((item) => (item = false));
+    setSelectedType(transformedArray);
+    setCheckedState(transformedArray2);
+    dispatch(
+      counterActions.filterLensColor([transformedArray, transformedArray2])
+    );
   };
 
   return (

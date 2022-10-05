@@ -6,10 +6,14 @@ import { ItemDetails, SingleItem, Wrapper } from "./ItemList.style";
 
 function ItemList() {
   const itemList = useSelector((state) => state.counter.filtredArray);
+  const isSortedArrayByNew = useSelector((state) => state.counter.selectedSort);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(counterActions.categoryChangeRemoveFilters());
-    dispatch(counterActions.filterCategory("Contact Lenses"));  //default category selected
+    dispatch(counterActions.filterCategory("Contact Lenses")); //default category selected
+    if (isSortedArrayByNew === "1") {
+      dispatch(counterActions.sortItems("1")); // when button "new" on frontpage selected, filter current itemlist by newest
+    }
   }, []);
   return (
     <>
