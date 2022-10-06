@@ -23,16 +23,16 @@ const loadVariants = {
 function Header() {
   const dispatch = useDispatch();
   const [loadMenuModal, setLoadMenuModal] = useState(false);
-
   return (
     <>
-      {loadMenuModal && <MenuModal />}
+      {loadMenuModal && <MenuModal isOpenHandler={loadMenuModal} />}
       <Wrapper
         as={motion.section}
         variants={loadVariants}
         initial="hidden"
         animate="visible"
         transition={{ type: "spring", bounce: 0.2, delay: 0.3 }}
+        onBlur={() => setLoadMenuModal(false)}
       >
         <Category>
           <li>HOME</li>
