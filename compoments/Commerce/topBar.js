@@ -11,7 +11,9 @@ import {
 function TopBar() {
   return (
     <Wrapper>
-      <Image src="/Images/logo.png" alt="logo" />
+      <a href="/">
+        <Image src="/Images/logo.webp" alt="logo" />
+      </a>
       <Options>
         <div>
           <span>

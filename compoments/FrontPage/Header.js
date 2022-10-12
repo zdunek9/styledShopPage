@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Category, IconShop, Logo, Menu, Wrapper } from "./Header.style";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import logo from "../../public/Images/logo.png";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -46,7 +45,14 @@ function Header() {
           <li>SALE</li>
         </Category>
         <Logo>
-          <Image src={logo} />
+          <Image
+            src="/Images/logo.webp"
+            width={200}
+            height={54}
+            layout="fixed"
+            priority={true}
+            alt="logo"
+          />
         </Logo>
         <Menu>
           <p onClick={() => setLoadMenuModal((prevState) => !prevState)}>

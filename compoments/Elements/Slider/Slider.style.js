@@ -32,12 +32,16 @@ export const Wrapper = styled.div`
     max-width: unset;
     width: 250px;
   }
+  img{
+    width: 200px;
+    height: auto;
+  }
 `;
 export const NamePrice = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   width: 100%;
   span {
     font-weight: 700;

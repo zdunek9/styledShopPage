@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../../redux/store";
 
-function SortBy({ closeModal }) {
+function SortBy() {
   const selectedSortBy = useSelector((state) => state.counter.selectedSort);
   const [selectedFilter, setSelectedFilter] = useState(selectedSortBy);
 

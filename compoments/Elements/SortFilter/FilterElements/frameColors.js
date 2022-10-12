@@ -31,12 +31,10 @@ function FrameColors({ closeModal }) {
     const transformedArray = checkedState.map((item, index) =>
       item ? FrameColorsList[index].color : ""
     );
-    // const clearedArra = transformedArray.filter((item) => item);
     closeModal();
 
     dispatch(counterActions.filterFrameColor(transformedArray));
   };
-  // console.log(checkedState);
   return (
     <Wrapper
       as={motion.div}

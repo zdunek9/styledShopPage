@@ -126,7 +126,6 @@ const counterSlice = createSlice({
     },
     filterFrameColor(state, action) {
       const filterItems = action.payload.filter((item) => item);
-      console.log(filterItems);
       const brandEmptyFilter = state.brandFilter.filter((item) => item);
       const lensColorFilterEmpty = state.lensColorFilter.filter((item) => item);
       const lensColorTypeFilterEmpty = state.lensColorTypeFilter.filter(
@@ -474,7 +473,6 @@ const counterSlice = createSlice({
         (item) => item.type === state.selectedCategory
       );
       state.filtredArray = tempArray;
-      console.log(action.payload);
       state.priceFilter = action.payload;
 
       if (

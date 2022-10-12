@@ -64,13 +64,16 @@ export const Title = styled.div`
   }
 `;
 export const StyledImage = styled.div`
-  border-radius: 25px;
+
+  object-fit: cover;
   width: 50%;
-  height: fit-content;
-  @media (max-width: 800px) {
+  img {
+    border-radius: 25px;
+  }
+  @media (max-width: 900px) {
     display: none;
   }
   @media (max-height: 800px) {
-    width: 40%;
+    /* width: 40%; */
   }
 `;

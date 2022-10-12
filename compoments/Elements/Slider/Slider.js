@@ -34,7 +34,7 @@ function Slider({ data }) {
           <Wrapper>
             <NamePrice>
               <NameWrapper>
-                <h3>{item.name}</h3>
+                <span>{item.name}</span>
                 <p>{item.secondName}</p>
               </NameWrapper>
               <span>${item.price}</span>
@@ -42,7 +42,10 @@ function Slider({ data }) {
                 <FontAwesomeIcon icon={faPlus} />
               </AddButton>
             </NamePrice>
-            <img src={item.source} alt="itemPic" width={180} height={80} />
+            <img
+              src={item.source}
+              alt="itemPic"
+            />
           </Wrapper>
         </SwiperSlide>
       ))}

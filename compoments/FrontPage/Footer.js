@@ -27,7 +27,7 @@ function Footer() {
       </SubTitle>
       <ItemsWrapper>
         <Slider data={DUMMY_DATA} />
-      </ItemsWrapper>
+        </ItemsWrapper>
     </Wrapper>
   );
 }

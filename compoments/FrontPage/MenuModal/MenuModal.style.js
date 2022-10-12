@@ -26,10 +26,6 @@ export const ListItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #c1b28a;
-  &:nth-last-child(1) {
-    border-bottom: none;
-  }
   &:hover {
     background-color: #e5decd;
   }

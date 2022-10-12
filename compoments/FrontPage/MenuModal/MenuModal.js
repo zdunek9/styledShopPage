@@ -37,8 +37,6 @@ function MenuModal() {
             key={item}
             as={motion.li}
             variants={itemList}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.98 }}
           >
             {item}
           </ListItem>

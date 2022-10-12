@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import MainPageImage from "../../public/Images/glasses.webp";
 
 const loadVariants = {
   hidden: {
@@ -49,10 +51,11 @@ function Main() {
         </Title>
       </Parting>
       <StyledImage>
-        <img
-          src="/Images/glasses.jpg"
+        <Image
+          src={MainPageImage}
+          layout="intrinsic"
           alt="glasses"
-          style={{ borderRadius: "25px" }}
+          priority
         />
       </StyledImage>
     </Wrapper>
