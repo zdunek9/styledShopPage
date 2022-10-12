@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../redux/store";
 import { ItemDetails, SingleItem, Wrapper } from "./ItemList.style";
+import { URL_BLUR } from "../../public/Images/blured_img";
+import Image from "next/image";
 
 function ItemList() {
   const itemList = useSelector((state) => state.counter.filtredArray);
@@ -20,7 +22,14 @@ function ItemList() {
       <Wrapper>
         {itemList.map((item) => (
           <SingleItem key={item.id}>
-            <img src={item.image} alt="item image" layout="fill" />
+            <Image
+              src={item.image}
+              alt="item image"
+              width={300}
+              height={200}
+              placeholder="blur"
+              blurDataURL={URL_BLUR}
+            />
             <ItemDetails>
               <div>
                 <h3>{item.brand}</h3>
