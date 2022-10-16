@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   cursor: default !important;
   display: flex;
   flex-direction: column;
+  z-index: 1;
+
   button {
     width: 100%;
     height: 40px;
@@ -24,7 +26,6 @@ export const Wrapper = styled.div`
 export const ListStyled = styled.ul`
   width: 100%;
   height: 100%;
-  z-index: 1;
   list-style-type: none;
   overflow: auto;
   li {

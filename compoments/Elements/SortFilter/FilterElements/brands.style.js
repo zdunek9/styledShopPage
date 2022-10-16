@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding:15px !important;
+  z-index: 1;
   button {
     width: 100%;
     height: 40px;
@@ -27,7 +28,6 @@ export const Wrapper = styled.div`
 export const ListStyled = styled.ul`
   width: 100%;
   height: 95%;
-  z-index: 1;
   list-style-type: none;
   overflow: auto;
   scrollbar-color: red;

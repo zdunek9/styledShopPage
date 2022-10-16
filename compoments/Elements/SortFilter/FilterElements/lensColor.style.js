@@ -13,6 +13,8 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   cursor: default !important;
   padding: 15px !important;
+  z-index: 1;
+
 
   button {
     width: 100%;
@@ -34,7 +36,6 @@ export const ListStyled = styled.ul`
   width: 50%;
   height: 95%;
   margin-top: 20px;
-  z-index: 1;
   list-style-type: none;
   overflow: auto;
   cursor: default !important;

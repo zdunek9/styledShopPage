@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 250px;
   height: 210px;
   padding: 15px !important;
+  z-index: 1;
 
   background-color: ${(props) => props.theme.hover1};
   cursor: default !important;
@@ -25,7 +26,6 @@ export const Wrapper = styled.div`
 export const ListStyled = styled.ul`
   width: 100%;
   height: 100%;
-  z-index: 1;
   list-style-type: none;
   overflow: auto;
   li {

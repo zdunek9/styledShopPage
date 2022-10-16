@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   cursor: default !important;
   display: flex;
   flex-direction: column;
+  z-index: 1;
+
   button {
     width: 100%;
     height: 40px;
