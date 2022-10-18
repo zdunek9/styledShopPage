@@ -14,7 +14,7 @@ export const Category = styled.ul`
   flex-basis: 33%;
   font-weight: 500;
   li {
-    padding: 25px;
+    padding: 25px 40px;
     cursor: pointer;
   }
   li:hover {

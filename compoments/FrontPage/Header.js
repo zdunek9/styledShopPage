@@ -42,7 +42,6 @@ function Header() {
             {/* press new lead to commerse with newest filter marked */}
             <li onClick={() => dispatch(counterActions.sortItems("1"))}>NEW</li>
           </Link>
-          <li>SALE</li>
         </Category>
         <Logo>
           <Image

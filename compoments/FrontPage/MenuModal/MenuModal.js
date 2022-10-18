@@ -30,14 +30,15 @@ function MenuModal() {
   const menuItems = ["Salons", "About", "FAQ", "Returns", "Contact us"];
 
   return (
-    <Wrapper>
+    <Wrapper
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.08 }}
+    >
       <motion.ul variants={variants} initial="hidden" animate="show">
         {menuItems.map((item) => (
-          <ListItem
-            key={item}
-            as={motion.li}
-            variants={itemList}
-          >
+          <ListItem key={item} as={motion.li} variants={itemList}>
             {item}
           </ListItem>
         ))}

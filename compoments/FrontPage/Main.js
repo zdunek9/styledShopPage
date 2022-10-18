@@ -44,19 +44,16 @@ function Main() {
               </div>
             </Link>
             <div>
-              <Button1 text="Explore More" />
-              <FontAwesomeIcon icon={faSquareArrowUpRight} />
+              <div>
+                <Button1 text="Explore More" />
+                <FontAwesomeIcon icon={faSquareArrowUpRight} />
+              </div>
             </div>
           </div>
         </Title>
       </Parting>
       <StyledImage>
-        <Image
-          src={MainPageImage}
-          layout="intrinsic"
-          alt="glasses"
-          priority
-        />
+        <Image src={MainPageImage} layout="intrinsic" alt="glasses" priority />
       </StyledImage>
     </Wrapper>
   );
