@@ -51,9 +51,9 @@ function CarTopBarMobile() {
         <p onClick={() => changeSubCategory("2")}>FRAMES AND EYEGLASSES</p>
         {showItemMobile === "2" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
-            <li onClick={() => selectCategory("Women Frames")}>WOMEN'S</li>
-            <li onClick={() => selectCategory("Men Frames")}>MEN'S</li>
-            <li onClick={() => selectCategory("Children Frames")}>
+            <li onClick={() => selectCategory("Women's Frames")}>WOMEN'S</li>
+            <li onClick={() => selectCategory("Men's Frames")}>MEN'S</li>
+            <li onClick={() => selectCategory("Children's Frames")}>
               CHILDREN'S
             </li>
             <li onClick={() => selectCategory("Accessories")}>ACCESSORIES</li>
@@ -70,9 +70,9 @@ function CarTopBarMobile() {
         <p onClick={() => changeSubCategory("3")}>SUNGLASSES</p>
         {showItemMobile === "3" && (
           <UnderListLenses as={motion.ul} variants={showItems}>
-            <li onClick={() => selectCategory("Womens sunglasses")}>WOMEN'S</li>
-            <li onClick={() => selectCategory("Mens sunglasses")}>MEN'S</li>
-            <li onClick={() => selectCategory("Children sunglasses")}>
+            <li onClick={() => selectCategory("Women's Sunglasses")}>WOMEN'S</li>
+            <li onClick={() => selectCategory("Mens's Sunglasses")}>MEN'S</li>
+            <li onClick={() => selectCategory("Children's Sunglasses")}>
               CHILDREN'S
             </li>
             <li onClick={() => selectCategory("Accessories Sunglasses")}>

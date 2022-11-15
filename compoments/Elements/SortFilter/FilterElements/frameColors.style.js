@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
     height: 40px;
     cursor: pointer;
     margin-top: 10px;
+    border:1px solid black;
   }
   button:hover {
     background-color: ${(props) => props.theme.hover1};

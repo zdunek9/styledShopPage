@@ -23,6 +23,14 @@ export const Wrapper = styled.div`
       padding: 5px;
     }
   }
+  @media (max-height: 500px) {
+    height: 8vh;
+    padding: 10px;
+    div{
+      font-size: 0.7rem;
+      padding: 5px;
+    }
+  }
 
 `;
 export const UnactiveBtn = styled.div`

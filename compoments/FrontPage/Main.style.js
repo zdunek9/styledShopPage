@@ -48,6 +48,11 @@ export const Parting = styled.div`
       font-size: 5rem;
     }
   }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
 `;
 export const Title = styled.div`
   div {

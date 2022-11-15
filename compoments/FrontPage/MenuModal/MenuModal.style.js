@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 300px;
   height: 350px;
   border-radius: 10px;
+  border:1px solid #e5decd;
   overflow: hidden;
   z-index: 2;
   background-color: ${(props) => props.theme.itemsBackground};
@@ -26,6 +27,11 @@ export const ListItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #e5decd;
+  cursor: pointer;
+  &:last-child{
+    border-bottom: unset;
+  }
   &:hover {
     background-color: #e5decd;
   }

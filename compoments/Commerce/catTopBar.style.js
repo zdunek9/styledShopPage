@@ -12,6 +12,9 @@ export const Wrapper = styled.ul`
   @media (max-width: 700px) {
     display: none;
   }
+  @media (max-height: 500px) {
+    display: none;
+  }
 `;
 export const Lens = styled.li`
   margin: 20px;

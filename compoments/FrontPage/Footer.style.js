@@ -7,14 +7,16 @@ export const Wrapper = styled.section`
   overflow: hidden;
   max-width: 100%;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   @media (max-width: 1200px) {
     padding: 20px;
   }
   @media (max-width: 1000px) {
     flex-direction: column;
-    align-items:center;
-
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    /* margin-bottom: 20px; */
   }
 `;
 export const SubTitle = styled.div`
@@ -29,6 +31,9 @@ export const SubTitle = styled.div`
   @media (max-width: 1000px) {
     text-align: center;
     margin-right: unset;
+  }
+  @media (max-width: 600px) {
+    font-size: 2rem;
   }
 `;
 export const ItemsWrapper = styled.div`

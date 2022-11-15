@@ -45,7 +45,6 @@ export const Menu = styled.div`
     font-size: 1.1rem;
     padding: 25px;
     cursor: pointer;
-    
   }
   p:hover {
     background-color: ${(props) => props.theme.hover1};
@@ -66,6 +65,11 @@ export const Menu = styled.div`
       margin: 0 10px;
       font-size: 1.5rem;
     }
+  }
+  @media (max-width:600px){
+    p:hover {
+    background-color: unset
+  }
   }
 `;
 export const IconShop = styled.div`

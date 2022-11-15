@@ -11,6 +11,15 @@ export const Wrapper = styled.ul`
     list-style-type: none;
     position: relative;
   }
+  @media (max-height: 500px) {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    padding-bottom: 80px;
+    justify-content: space-around;
+    list-style-type: none;
+    position: relative;
+  }
 `;
 export const Lens = styled.li`
   font-weight: 600;
