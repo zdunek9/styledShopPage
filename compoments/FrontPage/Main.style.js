@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  margin: 12vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-height: 1100px) {
-    margin: 6vh 0;
+    margin: 20px 0;
   }
   @media (max-width: 1000px) {
     margin: 4vh;
@@ -24,7 +23,7 @@ export const Wrapper = styled.section`
 export const Parting = styled.div`
   margin-right: 5vw;
   h1 {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 500;
   }
   p {
@@ -69,9 +68,8 @@ export const Title = styled.div`
   }
 `;
 export const StyledImage = styled.div`
-
   object-fit: cover;
-  width: 50%;
+  width: 45%;
   img {
     border-radius: 25px;
   }

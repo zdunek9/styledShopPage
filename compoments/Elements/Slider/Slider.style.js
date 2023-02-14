@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   min-width: 250px;
   max-width: 270px;
-  max-height: 140px;
+  height: 140px;
   padding: 15px 30px;
   margin: 0 45px;
   border-radius: 20px;
@@ -32,8 +32,8 @@ export const Wrapper = styled.div`
     max-width: unset;
     width: 250px;
   }
-  img{
-    width: 200px;
+  img {
+    width: 180px;
     height: auto;
   }
 `;

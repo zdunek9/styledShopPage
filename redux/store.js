@@ -9,7 +9,7 @@ const initialStoreState = {
   lensColorTypeFilter: [],
   frameTypeFilter: [],
   priceFilter: [],
-  selectedCategory: "",
+  selectedCategory: "Contact Lenses",
   selectedSort: "",
 };
 const counterSlice = createSlice({

@@ -15,9 +15,6 @@ export const Wrapper = styled.section`
     flex-direction: column;
     align-items: center;
   }
-  @media (max-width: 600px) {
-    /* margin-bottom: 20px; */
-  }
 `;
 export const SubTitle = styled.div`
   font-size: 3rem;
