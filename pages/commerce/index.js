@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import CarTopBar from "../../compoments/Commerce/carTopBar";
 import SortFilter from "../../compoments/Commerce/sortFilter";
 import TopBar from "../../compoments/Commerce/topBar";
@@ -20,9 +20,7 @@ function CommerceMain() {
         <TopBar />
         <CarTopBar />
         <SortFilter />
-        <Suspense fallback={"...Loading"}>
-          <ItemList />
-        </Suspense>
+        <ItemList />
       </Wrapper>
     </>
   );

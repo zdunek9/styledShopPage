@@ -4,6 +4,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../redux/store";
 import { ItemDetails, SingleItem, Wrapper } from "./ItemList.style";
+import ItemListSingleItem from "./ItemListSingleItem";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 function ItemList() {
   const [tState, setTstate] = useState();
@@ -18,35 +22,20 @@ function ItemList() {
     }
     setTstate(itemList);
   }, []);
+
   useEffect(() => {
     setTstate(itemList);
   }, [itemList]);
 
-  const showItems =
-    tState &&
-    tState.map((item) => (
-      <SingleItem key={item.id}>
-        <Image
-          src={item.image}
-          alt="item image"
-          height={200}
-          width={300}
-          priority={true}
-          // placeholder="blur"
-        />
-        <ItemDetails>
-          <div>
-            <h3>{item.brand}</h3>
-            <h4>${item.price}</h4>
-          </div>
-          <p>{item.name}</p>
-        </ItemDetails>
-      </SingleItem>
-    ));
-
   return (
     <>
-      <Wrapper>{showItems}</Wrapper>
+      <Wrapper>
+        {!tState && <LoadingSkeleton />}
+        {!tState && <LoadingSkeleton />}
+        {!tState && <LoadingSkeleton />}
+        {!tState && <LoadingSkeleton />}
+        {tState && tState.map((item) => <ItemListSingleItem item={item} />)}
+      </Wrapper>
     </>
   );
 }
