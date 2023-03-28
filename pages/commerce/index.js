@@ -20,7 +20,9 @@ function CommerceMain() {
         <TopBar />
         <CarTopBar />
         <SortFilter />
+        <Suspense fallback={"...Loading"}>
           <ItemList />
+        </Suspense>
       </Wrapper>
     </>
   );
