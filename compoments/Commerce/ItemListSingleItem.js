@@ -2,17 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { ItemDetails, SingleItem } from "./ItemList.style";
 
-function ItemListSingleItem({ item }) {
+function ItemListSingleItem({ item, images }) {
+    console.log(images);
   return (
     <SingleItem key={item.id}>
-      <Image
-        src={item.image}
-        alt="item image"
-        height={200}
-        width={300}
-        loading="eager"
-        priority={true}
-      />
+      <img src={images} alt="item image" height={200} />
       <ItemDetails>
         <div>
           <h3>{item.brand}</h3>
