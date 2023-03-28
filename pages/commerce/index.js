@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import CarTopBar from "../../compoments/Commerce/carTopBar";
 import SortFilter from "../../compoments/Commerce/sortFilter";
 import TopBar from "../../compoments/Commerce/topBar";
 import { Wrapper } from "../../styles/indexCommerce.style";
 import ItemList from "../../compoments/Commerce/ItemList";
 import Head from "next/head";
+import Skeleton from "react-loading-skeleton";
 
 function CommerceMain() {
   return (
@@ -20,7 +21,7 @@ function CommerceMain() {
         <TopBar />
         <CarTopBar />
         <SortFilter />
-        <ItemList />
+        <Suspense fallback={<Skeleton />}><ItemList /></Suspense>
       </Wrapper>
     </>
   );
