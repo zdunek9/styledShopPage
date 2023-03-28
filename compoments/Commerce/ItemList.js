@@ -1,11 +1,9 @@
-import Image from "next/image";
-import React, { Suspense, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../redux/store";
 import { Wrapper } from "./ItemList.style";
 import ItemListSingleItem from "./ItemListSingleItem";
-import "react-loading-skeleton/dist/skeleton.css";
 
 function ItemList() {
   const [tState, setTstate] = useState();
