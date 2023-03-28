@@ -4,15 +4,10 @@ import SortFilter from "../../compoments/Commerce/sortFilter";
 import TopBar from "../../compoments/Commerce/topBar";
 import { Wrapper } from "../../styles/indexCommerce.style";
 import Head from "next/head";
-import dynamic from "next/dynamic";
+import ItemList from "../../compoments/Commerce/ItemList";
 
 function CommerceMain() {
-  const DynamicElement = dynamic(
-    () => import("../../compoments/Commerce/ItemList"),
-    {
-      loading: () => <p>Loading...</p>,
-    }
-  );
+
   return (
     <>
       <Head>
@@ -26,8 +21,7 @@ function CommerceMain() {
         <TopBar />
         <CarTopBar />
         <SortFilter />
-        {/* <ItemList /> */}
-        <DynamicElement />
+        <ItemList />
       </Wrapper>
     </>
   );
