@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { Suspense, useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,11 +26,13 @@ function ItemList() {
     tState &&
     tState.map((item) => (
       <SingleItem key={item.id}>
-        <img
+        <Image
           src={item.image}
           alt="item image"
           height={200}
-          placeholder="blur"
+          width={300}
+          priority={true}
+          // placeholder="blur"
         />
         <ItemDetails>
           <div>
