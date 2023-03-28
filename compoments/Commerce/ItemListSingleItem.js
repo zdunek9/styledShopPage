@@ -10,8 +10,8 @@ function ItemListSingleItem({ item }) {
         alt="item image"
         height={200}
         width={300}
+        loading="eager"
         priority={true}
-        // placeholder="blur"
       />
       <ItemDetails>
         <div>

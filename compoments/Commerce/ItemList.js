@@ -3,11 +3,9 @@ import React, { Suspense, useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../redux/store";
-import { ItemDetails, SingleItem, Wrapper } from "./ItemList.style";
+import { Wrapper } from "./ItemList.style";
 import ItemListSingleItem from "./ItemListSingleItem";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import LoadingSkeleton from "./LoadingSkeleton";
 
 function ItemList() {
   const [tState, setTstate] = useState();
@@ -16,9 +14,9 @@ function ItemList() {
   const itemList = useSelector((state) => state.counter.filtredArray);
   useEffect(() => {
     dispatch(counterActions.categoryChangeRemoveFilters());
-    dispatch(counterActions.filterCategory("Contact Lenses")); //default category selected
+    dispatch(counterActions.filterCategory("Contact Lenses"));
     if (isSortedArrayByNew === "1") {
-      dispatch(counterActions.sortItems("1")); // when button "new" on frontpage selected, filter current itemlist by newest
+      dispatch(counterActions.sortItems("1"));
     }
     setTstate(itemList);
   }, []);
@@ -30,10 +28,6 @@ function ItemList() {
   return (
     <>
       <Wrapper>
-        {!tState && <LoadingSkeleton />}
-        {!tState && <LoadingSkeleton />}
-        {!tState && <LoadingSkeleton />}
-        {!tState && <LoadingSkeleton />}
         {tState && tState.map((item) => <ItemListSingleItem item={item} />)}
       </Wrapper>
     </>
