@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../redux/store";
@@ -21,28 +21,29 @@ function ItemList() {
     setTstate(itemList);
   }, [itemList]);
 
+  const showItems =
+    tState &&
+    tState.map((item) => (
+      <SingleItem key={item.id}>
+        <img
+          src={item.image}
+          alt="item image"
+          height={200}
+          placeholder="blur"
+        />
+        <ItemDetails>
+          <div>
+            <h3>{item.brand}</h3>
+            <h4>${item.price}</h4>
+          </div>
+          <p>{item.name}</p>
+        </ItemDetails>
+      </SingleItem>
+    ));
+
   return (
     <>
-      <Wrapper>
-        {tState &&
-          tState.map((item) => (
-            <SingleItem key={item.id}>
-              <img
-                src={item.image}
-                alt="item image"
-                height={200}
-                placeholder="blur"
-              />
-              <ItemDetails>
-                <div>
-                  <h3>{item.brand}</h3>
-                  <h4>${item.price}</h4>
-                </div>
-                <p>{item.name}</p>
-              </ItemDetails>
-            </SingleItem>
-          ))}
-      </Wrapper>
+      <Wrapper>{showItems}</Wrapper>
     </>
   );
 }

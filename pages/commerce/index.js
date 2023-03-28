@@ -5,7 +5,6 @@ import TopBar from "../../compoments/Commerce/topBar";
 import { Wrapper } from "../../styles/indexCommerce.style";
 import ItemList from "../../compoments/Commerce/ItemList";
 import Head from "next/head";
-import Skeleton from "react-loading-skeleton";
 
 function CommerceMain() {
   return (
@@ -21,7 +20,7 @@ function CommerceMain() {
         <TopBar />
         <CarTopBar />
         <SortFilter />
-        <Suspense fallback={<Skeleton />}><ItemList /></Suspense>
+          <ItemList />
       </Wrapper>
     </>
   );
