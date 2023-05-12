@@ -16,6 +16,11 @@ export const SingleItem = styled.div`
   border: 1px solid gray;
   border-radius: 10px;
   overflow: hidden;
+  img{
+    width: 100%;
+    aspect-ratio:3/2;
+    object-fit:fill;
+  }
   @media (max-width: 1360px) {
     width: 21%;
     height: 250px;

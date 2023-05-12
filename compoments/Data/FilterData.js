@@ -5,7 +5,6 @@ export const BrandsList = [
   "Polaroid",
   "Ray-Ban",
   "Santa Cruz",
-
 ];
 export const FrameColorsList = [
   { color: "Transparent", code: "#ffffff" },
