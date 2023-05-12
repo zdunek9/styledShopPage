@@ -9,9 +9,9 @@ export const SingleItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 22%;
+  width: 21%;
   height: 270px;
-  margin: 30px 20px;
+  margin: 30px 15px;
   cursor: pointer;
   border: 1px solid gray;
   border-radius: 10px;

@@ -98,7 +98,6 @@ export const ItemListData = [
     lensColor: "Blank",
     frameType: "Blank",
   },
-  //tutaj frames sie zaczynaja
   {
     id: "8",
     dateRelease: "2017/05/01",
@@ -117,10 +116,10 @@ export const ItemListData = [
     id: "9",
     dateRelease: "2017/10/20",
     category: "FRAMES",
-    type: "Women's Frames",
+    type: "Men's Frames",
     price: "531",
     brand: "Marni",
-    name: "2017/10/20 Women Frame Marni",
+    name: "2017/10/20 Men Frames Marni",
     image: "/Images/Sunglasses/glass2.jpg",
     frameColor: "Transparent",
     lensColorType: "Mirror",
